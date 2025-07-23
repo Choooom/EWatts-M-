@@ -3,6 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:my_app/constants/colors.dart';
 import 'package:my_app/models/weather_status.dart';
 import 'package:intl/intl.dart';
+import 'package:my_app/util/weatherAnimation.dart';
 
 class WeatherStatusWidget extends StatefulWidget {
   const WeatherStatusWidget({super.key});
@@ -12,6 +13,8 @@ class WeatherStatusWidget extends StatefulWidget {
 }
 
 class _WeatherStatusWidgetState extends State<WeatherStatusWidget> {
+  late Future<LottieComposition> _composition;
+
   String getCurrentDate() {
     DateTime now = DateTime.now();
     String formatted = DateFormat('d MMM, yyyy').format(now);
@@ -22,12 +25,23 @@ class _WeatherStatusWidgetState extends State<WeatherStatusWidget> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+
     WeatherStatus weather = WeatherStatus(
-      status: "Sunny",
+      status: "storm",
       degrees: 32,
       degreeUnit: "Celsius",
       date: getCurrentDate(),
     );
+
+    String capitalizeEachWord(String input) {
+      return input
+          .split(' ')
+          .map((word) {
+            if (word.isEmpty) return word;
+            return word[0].toUpperCase() + word.substring(1).toLowerCase();
+          })
+          .join(' ');
+    }
 
     return Material(
       elevation: 0,
@@ -35,9 +49,8 @@ class _WeatherStatusWidgetState extends State<WeatherStatusWidget> {
         topLeft: Radius.circular(20),
         topRight: Radius.circular(20),
       ),
-      child: InkWell(
-        onTap: () {},
-        borderRadius: BorderRadius.only(
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
         ),
@@ -60,7 +73,7 @@ class _WeatherStatusWidgetState extends State<WeatherStatusWidget> {
                   Padding(
                     padding: EdgeInsetsGeometry.only(left: 20),
                     child: Text(
-                      "${weather.status}, ${weather.degrees}°${weather.degreeUnit == 'Celsius' ? 'C' : 'F'}",
+                      "${capitalizeEachWord(weather.status)}, ${weather.degrees}°${weather.degreeUnit == 'Celsius' ? 'C' : 'F'}",
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 20,
@@ -78,14 +91,14 @@ class _WeatherStatusWidgetState extends State<WeatherStatusWidget> {
               ),
               const Spacer(),
 
-              Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: Lottie.asset(
-                  'assets/animations/weather_sunny.json',
-                  width: 80,
-                  height: 80,
-                  repeat: true,
-                  animate: true,
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 500),
+                switchInCurve: Curves.easeInBack,
+                switchOutCurve: Curves.linear,
+                child: Padding(
+                  key: ValueKey(weather.status),
+                  padding: const EdgeInsets.only(right: 20),
+                  child: WeatherAnimation(weatherCondition: weather.status),
                 ),
               ),
             ],

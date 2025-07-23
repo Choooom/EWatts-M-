@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:my_app/constants/colors.dart';
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String username;
+
+  const CustomAppBar({super.key, required this.username});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(100); // true usable height
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: preferredSize.height,
+      padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
+      color: AppColors.whiteBodyBg,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Leading Button
+          GestureDetector(
+            onTap: () => print("Menu"),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Container(
+                width: 46,
+                height: 46,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppColors.whiteWidgetBg,
+                  borderRadius: BorderRadius.circular(23),
+                ),
+                child: SvgPicture.asset(
+                  'assets/icons/menu_drawer.svg',
+                  width: 25,
+                  height: 25,
+                ),
+              ),
+            ),
+          ),
+
+          // Title Section
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Hi, $username 👏',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  const Text(
+                    'Welcome Back',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Color.fromARGB(255, 151, 151, 151),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          // Trailing Button
+          GestureDetector(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.only(right: 10.0),
+              child: Container(
+                width: 46,
+                height: 46,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppColors.whiteWidgetBg,
+                  borderRadius: BorderRadius.circular(23),
+                ),
+                child: SvgPicture.asset(
+                  'assets/icons/notification.svg',
+                  width: 25,
+                  height: 25,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

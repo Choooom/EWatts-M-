@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart';
+import 'package:my_app/constants/colors.dart';
 
 Widget energyCircle(
   String label,
@@ -7,6 +8,9 @@ Widget energyCircle(
   Color borderColor,
   double size,
 ) {
+  final valueFontSize = size * 0.2;
+  final labelFontSize = size * 0.15;
+
   return Container(
     width: size,
     height: size,
@@ -30,9 +34,18 @@ Widget energyCircle(
       children: [
         Text(
           value,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: valueFontSize,
+          ),
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
+          softWrap: false,
         ),
-        Text(label, style: const TextStyle(fontSize: 12)),
+        Text(
+          label,
+          style: TextStyle(fontSize: labelFontSize, color: AppColors.greyText),
+        ),
       ],
     ),
   );
@@ -41,6 +54,7 @@ Widget energyCircle(
 Widget dottedLine({
   Axis direction = Axis.vertical,
   double length = 50,
+  double dashThickness = 2,
   Color color = Colors.green,
 }) {
   return Dash(
@@ -48,7 +62,7 @@ Widget dottedLine({
     length: length,
     dashLength: 10,
     dashColor: color,
-    dashThickness: 2,
+    dashThickness: dashThickness,
     dashGap: 5,
   );
 }

@@ -11,4 +11,22 @@ class AppColors {
   static const Color greyText = Color(0xFF71727b);
   static const Color greenCircle = Color(0xFF2b9670);
   static const Color greenDottedLines = Color(0xFF5abf8f);
+  static const Color subTextColor = Color(0xFF848688);
+  static const List<Color> batteryLevels = [
+    Color(0xFF5ae75f),
+    Color(0xFF61ea65),
+    Color(0xFF6aee6f),
+    Color(0xFF6eef74),
+    Color(0xFF77f37c),
+    Color(0xFF7df684),
+    Color(0xFF82f88a),
+    Color(0xFF8afb90),
+    Color(0xFF90fd96),
+    Color(0xFF97ffa0),
+  ];
+  static const Color whiteBatteryColor = Color(0xFFf3f5f9);
+  static const Color bottomNavIconColor = Color(0xFFf1f5f9);
+  static const Color bottomNavActiveIconColor = Color(0xFF111727);
+  static const Color bottomIconActiveColor = Color(0xFFfafdff);
+  static const Color bottomIconColor = Color(0xFF677582);
 }
