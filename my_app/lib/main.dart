@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants/colors.dart';
-import 'package:my_app/screens/dashboard.dart';
 import 'package:flutter/services.dart';
+import 'package:my_app/screens/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(color: Colors.black, fontSize: 20),
         ),
       ),
-      home: DashBoard(),
+      home: MainNavigation(),
     );
   }
 }

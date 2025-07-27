@@ -3,14 +3,9 @@ import 'package:my_app/constants/colors.dart';
 import 'package:my_app/widgets/energyDiagram.dart';
 import 'package:my_app/widgets/energy_circle.dart';
 
-class EnergySummary extends StatefulWidget {
+class EnergySummary extends StatelessWidget {
   const EnergySummary({super.key});
 
-  @override
-  State<EnergySummary> createState() => _EnergySummaryState();
-}
-
-class _EnergySummaryState extends State<EnergySummary> {
   @override
   Widget build(BuildContext context) {
     final containerWidth = MediaQuery.sizeOf(context).width * 0.9;

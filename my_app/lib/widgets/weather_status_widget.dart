@@ -27,7 +27,7 @@ class _WeatherStatusWidgetState extends State<WeatherStatusWidget> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     WeatherStatus weather = WeatherStatus(
-      status: "storm",
+      status: "partly sunny",
       degrees: 32,
       degreeUnit: "Celsius",
       date: getCurrentDate(),
