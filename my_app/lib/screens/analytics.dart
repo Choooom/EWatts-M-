@@ -56,7 +56,7 @@ class AnalyticsScreen extends StatelessWidget {
                               Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.all(
-                                    Radius.circular(20),
+                                    Radius.circular(10),
                                   ),
                                   border: BoxBorder.all(
                                     color: AppColors.whiteBodyBg,
