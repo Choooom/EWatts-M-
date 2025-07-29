@@ -29,4 +29,9 @@ class AppColors {
   static const Color bottomNavActiveIconColor = Color(0xFF111727);
   static const Color bottomIconActiveColor = Color(0xFFfafdff);
   static const Color bottomIconColor = Color(0xFF677582);
+
+  static const Color greenPowerButtonArea = Color(0xFFeefef2);
+  static const Color greenPowerButtonBorder = Color(0xFF9edbbe);
+  static const Color greenActiveCircle = Color(0xFF31d683);
+  static const Color greenText = Color(0xFF46bc85);
 }

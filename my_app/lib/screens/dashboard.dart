@@ -84,7 +84,7 @@ class consumptions extends StatelessWidget {
             ],
           ),
 
-          SizedBox(height: 20),
+          SizedBox(height: 10),
 
           GridView.builder(
             shrinkWrap: true,
