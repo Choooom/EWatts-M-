@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_app/constants/colors.dart';
+import 'package:my_app/widgets/tap_scale_effect.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String username;
@@ -20,7 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Leading Button
-          GestureDetector(
+          TapScaleEffect(
             onTap: () => print("Menu"),
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0),
@@ -31,6 +32,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 decoration: BoxDecoration(
                   color: AppColors.whiteWidgetBg,
                   borderRadius: BorderRadius.circular(23),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.05),
+                      blurRadius: 1,
+                    ),
+                  ],
                 ),
                 child: SvgPicture.asset(
                   'assets/icons/menu_drawer.svg',
@@ -71,7 +78,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
 
           // Trailing Button
-          GestureDetector(
+          TapScaleEffect(
             onTap: () {},
             child: Padding(
               padding: const EdgeInsets.only(right: 10.0),
@@ -82,6 +89,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 decoration: BoxDecoration(
                   color: AppColors.whiteWidgetBg,
                   borderRadius: BorderRadius.circular(23),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.05),
+                      blurRadius: 1,
+                    ),
+                  ],
                 ),
                 child: SvgPicture.asset(
                   'assets/icons/notification.svg',

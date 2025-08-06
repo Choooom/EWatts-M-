@@ -13,6 +13,9 @@ class DeviceCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteWidgetBg,
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 1),
+        ],
       ),
       child: Column(
         children: [

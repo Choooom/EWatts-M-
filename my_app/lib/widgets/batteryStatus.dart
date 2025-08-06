@@ -20,6 +20,9 @@ class _BatteryStatusState extends State<BatteryStatus> {
       decoration: BoxDecoration(
         color: AppColors.whiteWidgetBg,
         borderRadius: const BorderRadius.all(Radius.circular(20)),
+        boxShadow: [
+          BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 1),
+        ],
       ),
       child: AspectRatio(
         aspectRatio: 1.99,

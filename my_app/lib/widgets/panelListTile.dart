@@ -18,10 +18,13 @@ class PanelTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
-    return Container(
+    return Ink(
       decoration: BoxDecoration(
         color: AppColors.whiteWidgetBg,
         borderRadius: BorderRadius.all(Radius.circular(10)),
+        boxShadow: [
+          BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 1),
+        ],
       ),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -29,12 +32,12 @@ class PanelTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
+            Ink(
               padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
                 color: AppColors.whiteWidgetBg,
                 shape: BoxShape.circle,
-                border: Border.all(color: AppColors.whiteBodyBg, width: 4),
+                border: Border.all(color: AppColors.whiteBodyBg, width: 3),
               ),
               child: Image.asset(
                 'assets/images/panels_screen/panel_icon.png',

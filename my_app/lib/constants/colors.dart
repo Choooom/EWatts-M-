@@ -9,6 +9,7 @@ class AppColors {
   static const Color redDottedLines = Color(0xFFd86d6f);
   static const Color black = Colors.black;
   static const Color greyText = Color(0xFF71727b);
+  static const Color greyBg = Color(0xFFebecf0);
   static const Color greenCircle = Color(0xFF2b9670);
   static const Color greenDottedLines = Color(0xFF5abf8f);
   static const Color subTextColor = Color(0xFF848688);
@@ -24,6 +25,9 @@ class AppColors {
     Color(0xFF90fd96),
     Color(0xFF97ffa0),
   ];
+
+  static const Color yellowDottedLine = Color(0xFFf8e2b3);
+
   static const Color whiteBatteryColor = Color(0xFFf3f5f9);
   static const Color bottomNavIconColor = Color(0xFFf1f5f9);
   static const Color bottomNavActiveIconColor = Color(0xFF111727);
@@ -34,4 +38,15 @@ class AppColors {
   static const Color greenPowerButtonBorder = Color(0xFF9edbbe);
   static const Color greenActiveCircle = Color(0xFF31d683);
   static const Color greenText = Color(0xFF46bc85);
+
+  static const Color greenUpperLeft = Color(0xFF93fd95);
+  static const Color greenBottomRight = Color(0xFF52eb5c);
+  static const Color greenLabel = Color(0xFF61de5d);
+  static const Color greenCircleBg = Color(0xFFe5f9f0);
+
+  static const Color yellowUpperLeft = Color(0xFFe8ed86);
+  static const Color yellowBottomLeft = Color(0xFFdce63c);
+  static const Color yellowLabel = Color(0xFFe2ea64);
+
+  static const Color greyBgColor = Color(0xFFdde2df);
 }

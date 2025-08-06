@@ -27,7 +27,7 @@ class _WeatherStatusWidgetState extends State<WeatherStatusWidget> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     WeatherStatus weather = WeatherStatus(
-      status: "partly sunny",
+      status: "storm",
       degrees: 32,
       degreeUnit: "Celsius",
       date: getCurrentDate(),
@@ -43,65 +43,76 @@ class _WeatherStatusWidgetState extends State<WeatherStatusWidget> {
           .join(' ');
     }
 
-    return Material(
-      elevation: 0,
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(20),
-        topRight: Radius.circular(20),
-      ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 1),
+        ],
+        borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
         ),
-        child: Container(
-          width: screenWidth * 0.9,
-          height: 80,
-          decoration: BoxDecoration(
-            color: AppColors.whiteWidgetBg,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
+      ),
+      child: Material(
+        elevation: 0,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
-          child: Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsGeometry.only(left: 20),
-                    child: Text(
-                      "${capitalizeEachWord(weather.status)}, ${weather.degrees}°${weather.degreeUnit == 'Celsius' ? 'C' : 'F'}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 20,
+          child: Container(
+            width: screenWidth * 0.9,
+            height: 80,
+            decoration: BoxDecoration(
+              color: AppColors.whiteWidgetBg,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+            ),
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsGeometry.only(left: 20),
+                      child: Text(
+                        "${capitalizeEachWord(weather.status)}, ${weather.degrees}°${weather.degreeUnit == 'Celsius' ? 'C' : 'F'}",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsGeometry.only(left: 20),
-                    child: Text(
-                      "${weather.date}",
-                      style: TextStyle(color: AppColors.greyText),
+                    Padding(
+                      padding: EdgeInsetsGeometry.only(left: 20),
+                      child: Text(
+                        "${weather.date}",
+                        style: TextStyle(color: AppColors.greyText),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const Spacer(),
-
-              AnimatedSwitcher(
-                duration: const Duration(milliseconds: 500),
-                switchInCurve: Curves.easeInBack,
-                switchOutCurve: Curves.linear,
-                child: Padding(
-                  key: ValueKey(weather.status),
-                  padding: const EdgeInsets.only(right: 20),
-                  child: WeatherAnimation(weatherCondition: weather.status),
+                  ],
                 ),
-              ),
-            ],
+                const Spacer(),
+
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 500),
+                  switchInCurve: Curves.easeInBack,
+                  switchOutCurve: Curves.linear,
+                  child: Padding(
+                    key: ValueKey(weather.status),
+                    padding: const EdgeInsets.only(right: 20),
+                    child: WeatherAnimation(weatherCondition: weather.status),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

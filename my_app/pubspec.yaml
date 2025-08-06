@@ -76,6 +76,7 @@ flutter:
   assets:
       - assets/images/on_boarding/
       - assets/images/panels_screen/
+      - assets/images/analytics/
       - assets/icons/
       - assets/animations/
       - assets/images/

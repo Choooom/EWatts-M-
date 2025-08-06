@@ -31,6 +31,9 @@ class _bottomNavBarState extends State<bottomNavBar> {
         decoration: BoxDecoration(
           color: AppColors.whiteWidgetBg,
           borderRadius: BorderRadius.all(Radius.circular(50)),
+          boxShadow: [
+            BoxShadow(color: Colors.black.withValues(alpha: 10), blurRadius: 1),
+          ],
         ),
         child: Padding(
           padding: const EdgeInsets.all(10),
