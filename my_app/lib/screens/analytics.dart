@@ -1,8 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
 import 'package:my_app/models/consumption_overview.dart';
+import 'package:my_app/state_management/theme_mode_listener.dart';
 import 'package:my_app/widgets/consumption_overview_graph.dart';
 import 'package:my_app/widgets/custom_app_bar.dart';
 import 'package:my_app/widgets/performanceMetrics.dart';
@@ -59,186 +61,225 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
   Widget build(BuildContext context) {
     final List<ConsumptionOverview> data = generateRandomConsumptionData(10);
     double width = MediaQuery.sizeOf(context).width;
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(child: SecondaryAppBar(screeenName: "Analytics")),
-          SliverToBoxAdapter(child: timeFrame()),
-          SliverToBoxAdapter(child: SizedBox(height: 10)),
-          SliverToBoxAdapter(
-            child: consumptionOverview(width: width, data: data),
-          ),
-          SliverToBoxAdapter(child: SizedBox(height: 10)),
-          SliverToBoxAdapter(child: carbonEmission(width: width)),
-          SliverToBoxAdapter(child: SizedBox(height: 10)),
-          SliverToBoxAdapter(child: performanceMetrics(width: width)),
-          SliverToBoxAdapter(child: SizedBox(height: 10)),
-          SliverToBoxAdapter(
-            child: Center(
-              child: SizedBox(
-                width: width * 0.9,
-                child: AspectRatio(
-                  aspectRatio: 1 / 0.4,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.whiteWidgetBg,
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.05),
-                                blurRadius: 1,
-                              ),
-                            ],
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: BoxBorder.all(
-                                        color: AppColors.whiteBodyBg,
-                                        width: 2,
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(6.0),
-                                      child: Image.asset(
-                                        'assets/icons/percentage.png',
-                                        color: Colors.orange,
-                                        width: width * 0.06,
-                                      ),
-                                    ),
-                                  ),
+    return Consumer(
+      builder: (context, ref, child) {
+        final brightness = ref.watch(themeModeProvider);
+
+        return Scaffold(
+          body: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: SecondaryAppBar(
+                  screeenName: "Analytics",
+                  brightness: brightness,
+                ),
+              ),
+              SliverToBoxAdapter(child: timeFrame(brightness)),
+              SliverToBoxAdapter(child: SizedBox(height: 10)),
+              SliverToBoxAdapter(
+                child: consumptionOverview(
+                  width: width,
+                  data: data,
+                  brightness: brightness,
+                ),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 10)),
+              SliverToBoxAdapter(
+                child: carbonEmission(width: width, brightness: brightness),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 10)),
+              SliverToBoxAdapter(
+                child: performanceMetrics(width: width, brightness: brightness),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 10)),
+              SliverToBoxAdapter(
+                child: Center(
+                  child: SizedBox(
+                    width: width * 0.9,
+                    child: AspectRatio(
+                      aspectRatio: 1 / 0.4,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: AppColors.whiteWidgetBg(brightness),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
                                 ),
-                                Column(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withValues(alpha: 0.05),
+                                    blurRadius: 1,
+                                  ),
+                                ],
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 10.0),
+                                child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                        left: 15.0,
+                                        left: 10.0,
                                       ),
-                                      child: Text(
-                                        "\$50.45",
-                                        style: TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.w600,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: BoxBorder.all(
+                                            color: AppColors.whiteBodyBg(
+                                              brightness,
+                                            ),
+                                            width: 2,
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(6.0),
+                                          child: Image.asset(
+                                            'assets/icons/percentage.png',
+                                            color: Colors.orange,
+                                            width: width * 0.06,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 15.0,
-                                      ),
-                                      child: Text(
-                                        "Cost Saved",
-                                        style: TextStyle(
-                                          color: AppColors.greyText,
-                                          fontSize: 12,
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            left: 15.0,
+                                          ),
+                                          child: Text(
+                                            "\$50.45",
+                                            style: TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
                                         ),
-                                      ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            left: 15.0,
+                                          ),
+                                          child: Text(
+                                            "Cost Saved",
+                                            style: TextStyle(
+                                              color: AppColors.greyText(
+                                                brightness,
+                                              ),
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.whiteWidgetBg,
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.05),
-                                blurRadius: 1,
-                              ),
-                            ],
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: BoxBorder.all(
-                                        color: AppColors.whiteBodyBg,
-                                        width: 2,
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(6.0),
-                                      child: Image.asset(
-                                        'assets/icons/coins.png',
-                                        color: Colors.orange,
-                                        width: width * 0.06,
-                                      ),
-                                    ),
-                                  ),
+                          SizedBox(width: 10),
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: AppColors.whiteWidgetBg(brightness),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
                                 ),
-                                Column(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withValues(alpha: 0.05),
+                                    blurRadius: 1,
+                                  ),
+                                ],
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 10.0),
+                                child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                        left: 15.0,
+                                        left: 10.0,
                                       ),
-                                      child: Text(
-                                        "\$10.32",
-                                        style: TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.w600,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: BoxBorder.all(
+                                            color: AppColors.whiteBodyBg(
+                                              brightness,
+                                            ),
+                                            width: 2,
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(6.0),
+                                          child: Image.asset(
+                                            'assets/icons/coins.png',
+                                            color: Colors.orange,
+                                            width: width * 0.06,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 15.0,
-                                      ),
-                                      child: Text(
-                                        "Earned from grid",
-                                        style: TextStyle(
-                                          color: AppColors.greyText,
-                                          fontSize: 12,
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            left: 15.0,
+                                          ),
+                                          child: Text(
+                                            "\$10.32",
+                                            style: TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
                                         ),
-                                      ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            left: 15.0,
+                                          ),
+                                          child: Text(
+                                            "Earned from grid",
+                                            style: TextStyle(
+                                              color: AppColors.greyText(
+                                                brightness,
+                                              ),
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
+              SliverToBoxAdapter(child: SizedBox(height: 100)),
+            ],
           ),
-          SliverToBoxAdapter(child: SizedBox(height: 100)),
-        ],
-      ),
+        );
+      },
     );
   }
 
-  Center timeFrame() {
+  Center timeFrame(Brightness brightness) {
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -259,7 +300,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: selectedTimeFrame == 0
-                          ? AppColors.whiteWidgetBg
+                          ? AppColors.whiteWidgetBg(brightness)
                           : Colors.transparent,
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
@@ -275,7 +316,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                           fontWeight: FontWeight.bold,
                           color: selectedTimeFrame == 0
                               ? Colors.black
-                              : AppColors.greyText,
+                              : AppColors.greyText(brightness),
                         ),
                       ),
                     ),
@@ -288,7 +329,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: selectedTimeFrame == 1
-                          ? AppColors.whiteWidgetBg
+                          ? AppColors.whiteWidgetBg(brightness)
                           : Colors.transparent,
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
@@ -304,7 +345,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                           fontWeight: FontWeight.bold,
                           color: selectedTimeFrame == 1
                               ? Colors.black
-                              : AppColors.greyText,
+                              : AppColors.greyText(brightness),
                         ),
                       ),
                     ),
@@ -317,7 +358,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: selectedTimeFrame == 2
-                          ? AppColors.whiteWidgetBg
+                          ? AppColors.whiteWidgetBg(brightness)
                           : Colors.transparent,
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
@@ -333,7 +374,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                           fontWeight: FontWeight.bold,
                           color: selectedTimeFrame == 2
                               ? Colors.black
-                              : AppColors.greyText,
+                              : AppColors.greyText(brightness),
                         ),
                       ),
                     ),
@@ -346,7 +387,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: selectedTimeFrame == 3
-                          ? AppColors.whiteWidgetBg
+                          ? AppColors.whiteWidgetBg(brightness)
                           : Colors.transparent,
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
@@ -362,7 +403,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                           fontWeight: FontWeight.bold,
                           color: selectedTimeFrame == 3
                               ? Colors.black
-                              : AppColors.greyText,
+                              : AppColors.greyText(brightness),
                         ),
                       ),
                     ),
@@ -378,9 +419,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
 }
 
 class performanceMetrics extends StatelessWidget {
-  const performanceMetrics({super.key, required this.width});
+  const performanceMetrics({
+    super.key,
+    required this.width,
+    required this.brightness,
+  });
 
   final double width;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
@@ -388,7 +434,7 @@ class performanceMetrics extends StatelessWidget {
       child: Container(
         width: width * 0.9,
         decoration: BoxDecoration(
-          color: AppColors.whiteWidgetBg,
+          color: AppColors.whiteWidgetBg(brightness),
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -441,7 +487,9 @@ class performanceMetrics extends StatelessWidget {
                         SizedBox(width: 10),
                         Text(
                           "Direct Solar",
-                          style: TextStyle(color: AppColors.greyText),
+                          style: TextStyle(
+                            color: AppColors.greyText(brightness),
+                          ),
                         ),
                       ],
                     ),
@@ -459,7 +507,9 @@ class performanceMetrics extends StatelessWidget {
                         SizedBox(width: 10),
                         Text(
                           "Battery",
-                          style: TextStyle(color: AppColors.greyText),
+                          style: TextStyle(
+                            color: AppColors.greyText(brightness),
+                          ),
                         ),
                       ],
                     ),
@@ -477,7 +527,9 @@ class performanceMetrics extends StatelessWidget {
                         SizedBox(width: 10),
                         Text(
                           "Grid",
-                          style: TextStyle(color: AppColors.greyText),
+                          style: TextStyle(
+                            color: AppColors.greyText(brightness),
+                          ),
                         ),
                       ],
                     ),
@@ -493,9 +545,14 @@ class performanceMetrics extends StatelessWidget {
 }
 
 class carbonEmission extends StatelessWidget {
-  const carbonEmission({super.key, required this.width});
+  const carbonEmission({
+    super.key,
+    required this.width,
+    required this.brightness,
+  });
 
   final double width;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
@@ -503,7 +560,7 @@ class carbonEmission extends StatelessWidget {
       child: Container(
         width: width * 0.9,
         decoration: BoxDecoration(
-          color: AppColors.whiteWidgetBg,
+          color: AppColors.whiteWidgetBg(brightness),
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -540,7 +597,7 @@ class carbonEmission extends StatelessWidget {
                   SizedBox(height: 3),
                   Text(
                     "Carbon footprint offset",
-                    style: TextStyle(color: AppColors.greyText),
+                    style: TextStyle(color: AppColors.greyText(brightness)),
                   ),
                 ],
               ),
@@ -557,10 +614,12 @@ class consumptionOverview extends StatelessWidget {
     super.key,
     required this.width,
     required this.data,
+    required this.brightness,
   });
 
   final double width;
   final List<ConsumptionOverview> data;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
@@ -568,7 +627,7 @@ class consumptionOverview extends StatelessWidget {
       child: Container(
         width: width * 0.9,
         decoration: BoxDecoration(
-          color: AppColors.whiteWidgetBg,
+          color: AppColors.whiteWidgetBg(brightness),
           borderRadius: BorderRadius.all(Radius.circular(20)),
           boxShadow: [
             BoxShadow(
@@ -628,7 +687,9 @@ class consumptionOverview extends StatelessWidget {
                         SizedBox(width: 10),
                         Text(
                           "Direct Solar",
-                          style: TextStyle(color: AppColors.greyText),
+                          style: TextStyle(
+                            color: AppColors.greyText(brightness),
+                          ),
                         ),
                       ],
                     ),
@@ -646,7 +707,9 @@ class consumptionOverview extends StatelessWidget {
                         SizedBox(width: 10),
                         Text(
                           "Battery",
-                          style: TextStyle(color: AppColors.greyText),
+                          style: TextStyle(
+                            color: AppColors.greyText(brightness),
+                          ),
                         ),
                       ],
                     ),
@@ -664,7 +727,9 @@ class consumptionOverview extends StatelessWidget {
                         SizedBox(width: 10),
                         Text(
                           "Grid",
-                          style: TextStyle(color: AppColors.greyText),
+                          style: TextStyle(
+                            color: AppColors.greyText(brightness),
+                          ),
                         ),
                       ],
                     ),

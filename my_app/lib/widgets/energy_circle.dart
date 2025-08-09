@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
+import 'package:my_app/state_management/theme_mode_listener.dart';
 
 Widget energyCircle(
   String label,
@@ -11,43 +13,52 @@ Widget energyCircle(
   final valueFontSize = size * 0.2;
   final labelFontSize = size * 0.15;
 
-  return Container(
-    width: size,
-    height: size,
-    padding: const EdgeInsets.all(8),
-    decoration: BoxDecoration(
-      shape: BoxShape.circle,
-      border: Border.all(color: borderColor, width: 1),
-      color: Colors.white,
-      boxShadow: [
-        BoxShadow(
-          color: borderColor.withOpacity(0.2),
-          blurRadius: 6,
-          spreadRadius: 2,
-          offset: Offset(0, 3),
-        ),
-      ],
-    ),
+  return Consumer(
+    builder: (context, ref, child) {
+      final brightness = ref.watch(themeModeProvider);
 
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          value,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: valueFontSize,
-          ),
-          overflow: TextOverflow.ellipsis,
-          maxLines: 1,
-          softWrap: false,
+      return Container(
+        width: size,
+        height: size,
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: borderColor, width: 1),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: borderColor.withValues(alpha: 0.2),
+              blurRadius: 6,
+              spreadRadius: 2,
+              offset: Offset(0, 3),
+            ),
+          ],
         ),
-        Text(
-          label,
-          style: TextStyle(fontSize: labelFontSize, color: AppColors.greyText),
+
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              value,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: valueFontSize,
+              ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              softWrap: false,
+            ),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: labelFontSize,
+                color: AppColors.greyText(brightness),
+              ),
+            ),
+          ],
         ),
-      ],
-    ),
+      );
+    },
   );
 }
 

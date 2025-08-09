@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_app/constants/colors.dart';
 import 'package:my_app/models/weather_status.dart';
 import 'package:intl/intl.dart';
+import 'package:my_app/state_management/theme_mode_listener.dart';
 import 'package:my_app/util/weatherAnimation.dart';
 
 class WeatherStatusWidget extends StatefulWidget {
@@ -43,79 +45,92 @@ class _WeatherStatusWidgetState extends State<WeatherStatusWidget> {
           .join(' ');
     }
 
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 1),
-        ],
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-      ),
-      child: Material(
-        elevation: 0,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
+    return Consumer(
+      builder: (context, ref, child) {
+        final brightness = ref.watch(themeModeProvider);
+
+        return Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 1,
+              ),
+            ],
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
           ),
-          child: Container(
-            width: screenWidth * 0.9,
-            height: 80,
-            decoration: BoxDecoration(
-              color: AppColors.whiteWidgetBg,
-              borderRadius: BorderRadius.only(
+          child: Material(
+            elevation: 0,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
               ),
-            ),
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+              child: Container(
+                width: screenWidth * 0.9,
+                height: 80,
+                decoration: BoxDecoration(
+                  color: AppColors.whiteWidgetBg(brightness),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                ),
+                child: Row(
                   children: [
-                    Padding(
-                      padding: EdgeInsetsGeometry.only(left: 20),
-                      child: Text(
-                        "${capitalizeEachWord(weather.status)}, ${weather.degrees}°${weather.degreeUnit == 'Celsius' ? 'C' : 'F'}",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w900,
-                          fontSize: 20,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsGeometry.only(left: 20),
+                          child: Text(
+                            "${capitalizeEachWord(weather.status)}, ${weather.degrees}°${weather.degreeUnit == 'Celsius' ? 'C' : 'F'}",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 20,
+                            ),
+                          ),
                         ),
-                      ),
+                        Padding(
+                          padding: EdgeInsetsGeometry.only(left: 20),
+                          child: Text(
+                            "${weather.date}",
+                            style: TextStyle(
+                              color: AppColors.greyText(brightness),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: EdgeInsetsGeometry.only(left: 20),
-                      child: Text(
-                        "${weather.date}",
-                        style: TextStyle(color: AppColors.greyText),
+                    const Spacer(),
+
+                    AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 500),
+                      switchInCurve: Curves.easeInBack,
+                      switchOutCurve: Curves.linear,
+                      child: Padding(
+                        key: ValueKey(weather.status),
+                        padding: const EdgeInsets.only(right: 20),
+                        child: WeatherAnimation(
+                          weatherCondition: weather.status,
+                        ),
                       ),
                     ),
                   ],
                 ),
-                const Spacer(),
-
-                AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 500),
-                  switchInCurve: Curves.easeInBack,
-                  switchOutCurve: Curves.linear,
-                  child: Padding(
-                    key: ValueKey(weather.status),
-                    padding: const EdgeInsets.only(right: 20),
-                    child: WeatherAnimation(weatherCondition: weather.status),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

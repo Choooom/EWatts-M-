@@ -5,7 +5,12 @@ import 'package:my_app/widgets/tap_scale_effect.dart';
 // ignore: must_be_immutable
 class SecondaryAppBar extends StatelessWidget {
   String screeenName;
-  SecondaryAppBar({super.key, required this.screeenName});
+  final Brightness brightness;
+  SecondaryAppBar({
+    super.key,
+    required this.screeenName,
+    required this.brightness,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +37,7 @@ class SecondaryAppBar extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.whiteWidgetBg,
+                color: AppColors.whiteWidgetBg(brightness),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withValues(alpha: 0.05),

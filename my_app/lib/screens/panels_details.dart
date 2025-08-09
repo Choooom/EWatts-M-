@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
 import 'package:my_app/models/battery_charge_meter.dart';
 import 'package:my_app/models/panel_generation_overview.dart';
+import 'package:my_app/state_management/theme_mode_listener.dart';
 import 'package:my_app/widgets/chargeMeter.dart';
 import 'package:my_app/widgets/generating_overview_graph.dart';
 import 'package:my_app/widgets/tap_scale_effect.dart';
@@ -33,58 +35,83 @@ class PanelsDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: 10)),
-          SliverToBoxAdapter(
-            child: appBar(width: width, context: context),
-          ),
-          SliverToBoxAdapter(child: SizedBox(height: 30)),
-          SliverToBoxAdapter(
-            child: header(
-              width: width,
-              panelName: panelName,
-              panelStatus: panelStatus,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Performance",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ],
+    return Consumer(
+      builder: (context, ref, child) {
+        final brightness = ref.watch(themeModeProvider);
+
+        return Scaffold(
+          body: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(child: SizedBox(height: 10)),
+              SliverToBoxAdapter(
+                child: appBar(
+                  width: width,
+                  context: context,
+                  brightness: brightness,
+                ),
               ),
-            ),
+              SliverToBoxAdapter(child: SizedBox(height: 30)),
+              SliverToBoxAdapter(
+                child: header(
+                  width: width,
+                  panelName: panelName,
+                  panelStatus: panelStatus,
+                  brightness: brightness,
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 15,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Performance",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: generatingSection(
+                  data: data,
+                  width: width,
+                  brightness: brightness,
+                ),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 10)),
+              SliverToBoxAdapter(
+                child: generatingAveragely(
+                  width: width,
+                  batteryStatus: batteryStatus,
+                  brightness: brightness,
+                ),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 10)),
+              SliverToBoxAdapter(
+                child: summary(width: width, brightness: brightness),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 10)),
+            ],
           ),
-          SliverToBoxAdapter(
-            child: generatingSection(data: data, width: width),
-          ),
-          SliverToBoxAdapter(child: SizedBox(height: 10)),
-          SliverToBoxAdapter(
-            child: generatingAveragely(
-              width: width,
-              batteryStatus: batteryStatus,
-            ),
-          ),
-          SliverToBoxAdapter(child: SizedBox(height: 10)),
-          SliverToBoxAdapter(child: summary(width: width)),
-          SliverToBoxAdapter(child: SizedBox(height: 10)),
-        ],
-      ),
+        );
+      },
     );
   }
 }
 
 class summary extends StatelessWidget {
-  const summary({super.key, required this.width});
+  const summary({super.key, required this.width, required this.brightness});
 
   final double width;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +125,7 @@ class summary extends StatelessWidget {
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppColors.whiteWidgetBg,
+                    color: AppColors.whiteWidgetBg(brightness),
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     boxShadow: [
                       BoxShadow(
@@ -137,7 +164,7 @@ class summary extends StatelessWidget {
                               child: Text(
                                 "Total Produced",
                                 style: TextStyle(
-                                  color: AppColors.greyText,
+                                  color: AppColors.greyText(brightness),
                                   fontSize: 14,
                                 ),
                               ),
@@ -153,7 +180,7 @@ class summary extends StatelessWidget {
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppColors.whiteWidgetBg,
+                    color: AppColors.whiteWidgetBg(brightness),
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     boxShadow: [
                       BoxShadow(
@@ -192,7 +219,7 @@ class summary extends StatelessWidget {
                               child: Text(
                                 "Avg. efficiency",
                                 style: TextStyle(
-                                  color: AppColors.greyText,
+                                  color: AppColors.greyText(brightness),
                                   fontSize: 14,
                                 ),
                               ),
@@ -213,10 +240,16 @@ class summary extends StatelessWidget {
 }
 
 class appBar extends StatelessWidget {
-  const appBar({super.key, required this.width, required this.context});
+  const appBar({
+    super.key,
+    required this.width,
+    required this.context,
+    required this.brightness,
+  });
 
   final double width;
   final BuildContext context;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
@@ -233,7 +266,7 @@ class appBar extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: AppColors.whiteWidgetBg,
+                  color: AppColors.whiteWidgetBg(brightness),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -271,10 +304,16 @@ class appBar extends StatelessWidget {
 }
 
 class generatingSection extends StatelessWidget {
-  const generatingSection({super.key, required this.data, required this.width});
+  const generatingSection({
+    super.key,
+    required this.data,
+    required this.width,
+    required this.brightness,
+  });
 
   final List<PanelGenerationOverview> data;
   final double width;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
@@ -282,7 +321,7 @@ class generatingSection extends StatelessWidget {
       child: Container(
         width: width * 0.9,
         decoration: BoxDecoration(
-          color: AppColors.whiteWidgetBg,
+          color: AppColors.whiteWidgetBg(brightness),
           borderRadius: BorderRadius.all(Radius.circular(20)),
           boxShadow: [
             BoxShadow(
@@ -310,7 +349,7 @@ class generatingSection extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(25)),
                           border: BoxBorder.all(
-                            color: AppColors.whiteBodyBg,
+                            color: AppColors.whiteBodyBg(brightness),
                             width: 2,
                           ),
                         ),
@@ -366,9 +405,11 @@ class header extends StatelessWidget {
     required this.width,
     required this.panelName,
     required this.panelStatus,
+    required this.brightness,
   });
 
   final double width;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
@@ -376,7 +417,7 @@ class header extends StatelessWidget {
       child: Container(
         width: width * 0.9,
         decoration: BoxDecoration(
-          color: AppColors.whiteWidgetBg,
+          color: AppColors.whiteWidgetBg(brightness),
           borderRadius: BorderRadius.all(Radius.circular(20)),
           boxShadow: [
             BoxShadow(
@@ -430,7 +471,10 @@ class header extends StatelessWidget {
                   SizedBox(height: 5),
                   Text(
                     'In good condition',
-                    style: TextStyle(color: AppColors.greyText, fontSize: 16),
+                    style: TextStyle(
+                      color: AppColors.greyText(brightness),
+                      fontSize: 16,
+                    ),
                   ),
                 ],
               ),
@@ -455,17 +499,19 @@ class generatingAveragely extends StatelessWidget {
     super.key,
     required this.width,
     required this.batteryStatus,
+    required this.brightness,
   });
 
   final double width;
   final BatteryChargeMeterDetails batteryStatus;
+  final Brightness brightness;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.whiteWidgetBg,
+          color: AppColors.whiteWidgetBg(brightness),
           borderRadius: BorderRadius.all(Radius.circular(20)),
           boxShadow: [
             BoxShadow(
@@ -499,7 +545,7 @@ class generatingAveragely extends StatelessWidget {
                         Text(
                           "Generating Averagely",
                           style: TextStyle(
-                            color: AppColors.greyText,
+                            color: AppColors.greyText(brightness),
                             fontSize: 13,
                           ),
                         ),
@@ -512,7 +558,7 @@ class generatingAveragely extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(25)),
                         border: BoxBorder.all(
-                          color: AppColors.whiteBodyBg,
+                          color: AppColors.whiteBodyBg(brightness),
                           width: 2,
                         ),
                       ),
@@ -578,7 +624,7 @@ class generatingAveragely extends StatelessWidget {
                                 Text(
                                   "Efficiency",
                                   style: TextStyle(
-                                    color: AppColors.greyText,
+                                    color: AppColors.greyText(brightness),
                                     fontSize: 12,
                                   ),
                                 ),

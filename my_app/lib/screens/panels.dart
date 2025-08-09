@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
 import 'package:my_app/models/panels.dart';
 import 'package:my_app/screens/panels_details.dart';
+import 'package:my_app/state_management/theme_mode_listener.dart';
 import 'package:my_app/widgets/custom_app_bar.dart';
 import 'package:my_app/widgets/panelListTile.dart';
 
@@ -14,6 +16,7 @@ class PanelsScreen extends StatefulWidget {
 
 class _PanelsScreenState extends State<PanelsScreen> {
   bool _showAllPanels = false;
+  bool isSwitched = true;
 
   @override
   Widget build(BuildContext context) {
@@ -62,20 +65,36 @@ class _PanelsScreenState extends State<PanelsScreen> {
       Panels(panelName: "SOLAR S-790", efficiencyLevel: 8, energyLevel: 0),
     ];
     final width = MediaQuery.sizeOf(context).width;
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(child: SecondaryAppBar(screeenName: "Panels")),
+    return Consumer(
+      builder: (context, ref, child) {
+        final brightness = ref.watch(themeModeProvider);
+        return Scaffold(
+          body: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: SecondaryAppBar(
+                  screeenName: "Panels",
+                  brightness: brightness,
+                ),
+              ),
 
-          SliverToBoxAdapter(child: header(width)),
+              SliverToBoxAdapter(
+                child: header(width, isSwitched, brightness, (newValue) {
+                  setState(() {
+                    isSwitched = newValue;
+                  });
+                }),
+              ),
 
-          SliverToBoxAdapter(child: panelList(panels)),
-        ],
-      ),
+              SliverToBoxAdapter(child: panelList(panels, brightness)),
+            ],
+          ),
+        );
+      },
     );
   }
 
-  Column panelList(List<Panels> panels) {
+  Column panelList(List<Panels> panels, Brightness brightness) {
     return Column(
       children: [
         Row(
@@ -94,7 +113,10 @@ class _PanelsScreenState extends State<PanelsScreen> {
               padding: const EdgeInsets.only(right: 20.0, top: 15),
               child: Text(
                 "Total 32",
-                style: TextStyle(color: AppColors.greyText, fontSize: 18),
+                style: TextStyle(
+                  color: AppColors.greyText(brightness),
+                  fontSize: 18,
+                ),
               ),
             ),
           ],
@@ -190,7 +212,9 @@ class _PanelsScreenState extends State<PanelsScreen> {
                           },
                           child: Text(
                             'Show All',
-                            style: TextStyle(color: AppColors.greyText),
+                            style: TextStyle(
+                              color: AppColors.greyText(brightness),
+                            ),
                           ),
                         ),
                       if (isLastItem)
@@ -213,7 +237,9 @@ class _PanelsScreenState extends State<PanelsScreen> {
                           },
                           child: Text(
                             'Show Less',
-                            style: TextStyle(color: AppColors.greyText),
+                            style: TextStyle(
+                              color: AppColors.greyText(brightness),
+                            ),
                           ),
                         ),
                     ],
@@ -227,7 +253,12 @@ class _PanelsScreenState extends State<PanelsScreen> {
     );
   }
 
-  AspectRatio header(double width) {
+  AspectRatio header(
+    double width,
+    bool isSwitched,
+    Brightness brightness,
+    ValueChanged<bool> onChanged,
+  ) {
     return AspectRatio(
       aspectRatio: 1 / 0.6,
       child: Center(
@@ -291,36 +322,95 @@ class _PanelsScreenState extends State<PanelsScreen> {
               Center(
                 child: SizedBox(
                   width: width * 0.85,
-                  child: AspectRatio(
-                    aspectRatio: 1 / 0.25,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [AppColors.blackLeft, AppColors.blackRight],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: width * 0.6,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "✨ AI optimization",
-                                    style: TextStyle(color: Colors.white),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 15,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            width: width * 0.55,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    ShaderMask(
+                                      shaderCallback: (bounds) =>
+                                          const LinearGradient(
+                                            colors: [
+                                              AppColors.goldRight,
+                                              AppColors.goldLeft,
+                                            ],
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomRight,
+                                          ).createShader(bounds),
+                                      blendMode: BlendMode
+                                          .srcIn, // Keeps image shape but applies gradient
+                                      child: Image.asset(
+                                        "assets/icons/star.png",
+                                        width: width * 0.06,
+                                      ),
+                                    ),
+                                    SizedBox(width: 10),
+                                    ShaderMask(
+                                      shaderCallback: (bounds) =>
+                                          const LinearGradient(
+                                            colors: [
+                                              AppColors.goldRight,
+                                              AppColors.goldLeft,
+                                            ],
+                                            begin: Alignment.centerLeft,
+                                            end: Alignment.centerRight,
+                                          ).createShader(
+                                            Rect.fromLTWH(
+                                              0,
+                                              0,
+                                              bounds.width,
+                                              bounds.height,
+                                            ),
+                                          ),
+                                      child: Text(
+                                        "AI optimization",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 5),
+                                Text(
+                                  "Increase efficiency and get more out of your panels",
+                                  style: TextStyle(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      208,
+                                      209,
+                                      216,
+                                    ),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w300,
                                   ),
-                                  Text(
-                                    "Increase efficiency and get more out of your panels",
-                                    style: TextStyle(color: Colors.white),
-                                    softWrap: true,
-                                  ),
-                                ],
-                              ),
+                                  softWrap: true,
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                          Switch(value: isSwitched, onChanged: onChanged),
+                        ],
                       ),
                     ),
                   ),
