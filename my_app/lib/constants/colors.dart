@@ -64,8 +64,8 @@ class AppColors {
 
   static const Color greyBgColor = Color(0xFFdde2df);
 
-  static const Color blackLeft = Color(0xFF1e1d22);
-  static const Color blackRight = Color(0xFF353842);
+  static const Color blackLeft = Color(0xFF1A1A1F);
+  static const Color blackRight = Color(0xFF3E414C);
 
   static const Color goldLeft = Color(0xFFdbba7e);
   static const Color goldRight = Color(0xFFf6f7d3);

@@ -325,11 +325,18 @@ class _PanelsScreenState extends State<PanelsScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [AppColors.blackLeft, AppColors.blackRight],
+                        colors: [
+                          AppColors.blackLeft,
+                          Color(0xFF2B2C33),
+                          AppColors.blackRight,
+                        ],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    foregroundDecoration: BoxDecoration(
+                      color: Colors.black.withValues(alpha: 0.02),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
