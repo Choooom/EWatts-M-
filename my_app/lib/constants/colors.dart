@@ -69,4 +69,7 @@ class AppColors {
 
   static const Color goldLeft = Color(0xFFdbba7e);
   static const Color goldRight = Color(0xFFf6f7d3);
+
+  static const Color discord = Color(0xFF566af6);
+  static const Color facebook = Color(0xFF086dff);
 }

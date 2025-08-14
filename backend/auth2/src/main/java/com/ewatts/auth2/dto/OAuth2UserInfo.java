@@ -1,0 +1,23 @@
+package com.ewatts.auth2.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Map;
+
+@Getter
+public abstract class OAuth2UserInfo {
+    protected Map<String, Object> attributes;
+    @Setter
+    private String email;
+
+    public OAuth2UserInfo(Map<String, Object> attributes) {
+        this.attributes = attributes;
+    }
+
+    public abstract String getId();
+    public abstract String getName();
+    public abstract String getEmail();
+    public abstract String getImageUrl();
+
+}

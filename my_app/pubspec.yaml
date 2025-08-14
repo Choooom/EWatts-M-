@@ -42,6 +42,8 @@ dependencies:
   google_nav_bar: ^5.0.7
   fl_chart: ^1.0.0
   flutter_riverpod: ^2.6.1
+  supabase_flutter: ^2.9.1 #get rid of this kapag nag proceed ka sa custom backend
+  http: ^1.5.0
   
 
 dev_dependencies:
