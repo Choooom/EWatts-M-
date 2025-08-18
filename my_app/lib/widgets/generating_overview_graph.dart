@@ -10,7 +10,7 @@ import 'package:my_app/state_management/theme_mode_listener.dart';
 class PanelGenerationGraph extends StatelessWidget {
   final List<PanelGenerationOverview> data;
 
-  PanelGenerationGraph({super.key, required this.data});
+  const PanelGenerationGraph({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {

@@ -22,6 +22,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -62,6 +64,7 @@ public class AuthService {
 
     public ApiResponse signUp(SignUpRequest signUpRequest) {
         // Check if username exists
+
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             throw new BadRequestException("Username is already taken!");
         }
@@ -93,6 +96,40 @@ public class AuthService {
 
         return new ApiResponse(true, "Registration initiated! Please check your email for verification code.", null);
     }
+
+    public ApiResponse resendOtp(ResendOtpRequest request) {
+        // Check if email was used in signup
+        Optional<OtpToken> existingOtp = otpTokenRepository.findTopByEmailAndTypeOrderByCreatedAtDesc(
+                request.getEmail(), OtpType.EMAIL_VERIFICATION
+        );
+
+        if (existingOtp.isEmpty()) {
+            throw new BadRequestException("Please sign up first.");
+        }
+
+        // Invalidate old OTP
+        OtpToken otpToken = existingOtp.get();
+        otpToken.setUsed(true);
+        otpTokenRepository.save(otpToken);
+
+        // Generate new OTP
+        String newOtpCode = otpService.generateOtp();
+        OtpToken newOtp = new OtpToken();
+        newOtp.setEmail(request.getEmail());
+        newOtp.setOtpCode(newOtpCode);
+        newOtp.setType(OtpType.EMAIL_VERIFICATION);
+        newOtp.setExpiresAt(LocalDateTime.now().plusMinutes(5));
+
+        otpTokenRepository.save(newOtp);
+
+        // Send email
+        emailService.sendVerificationEmail(request.getEmail(), newOtpCode, null);
+
+        return new ApiResponse(true, "A new OTP has been sent to your email.", null);
+    }
+
+
+
 
     public JwtResponse verifyEmailAndCompleteSignup(EmailVerificationRequest request, SignUpRequest signUpRequest) {
         // Validate OTP - Fixed: Changed from PASSWORD_RESET to EMAIL_VERIFICATION
@@ -176,6 +213,51 @@ public class AuthService {
         return new ApiResponse(true, "Password has been reset successfully.", null);
     }
 
+    public ApiResponse verifyPasswordResetOtp(VerifyOtpRequest request) {
+        // Validate OTP
+        OtpToken otpToken = otpTokenRepository.findByEmailAndOtpCodeAndTypeAndUsedFalseAndExpiresAtAfter(
+                        request.getEmail(),
+                        request.getOtpCode(),
+                        OtpType.PASSWORD_RESET,
+                        LocalDateTime.now()
+                )
+                .orElseThrow(() -> new BadRequestException("Invalid or expired OTP code"));
+
+        // Mark OTP as used
+        otpToken.setUsed(true);
+        otpTokenRepository.save(otpToken);
+
+        // Optionally, create a short-lived reset token (UUID)
+        String resetToken = UUID.randomUUID().toString();
+        otpService.storeResetToken(request.getEmail(), resetToken); // You implement storage logic
+
+        return new ApiResponse(true, "OTP verified successfully. Proceed to reset your password.", resetToken);
+    }
+
+    public ApiResponse setNewPassword(SetNewPasswordRequest request) {
+        // Check the reset token is valid
+        if (!otpService.isValidResetToken(request.getEmail(), request.getResetToken())) {
+            throw new BadRequestException("Invalid or expired reset token.");
+        }
+
+        if (!request.getNewPassword().equals(request.getConfirmPassword())) {
+            throw new BadRequestException("Passwords do not match");
+        }
+
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new ResourceNotFoundException("User", "email", request.getEmail()));
+
+        // Update password
+        user.setPassword(passwordEncoder.encode(request.getNewPassword()));
+        userRepository.save(user);
+
+        // Invalidate reset token
+        otpService.invalidateResetToken(request.getEmail());
+
+        return new ApiResponse(true, "Password has been reset successfully.", null);
+    }
+
+
     @Transactional
     public User updateProfilePicture(Long userId, String profilePictureUrl) {
         User user = userRepository.findById(userId)
@@ -183,6 +265,11 @@ public class AuthService {
         user.setProfilePictureUrl(profilePictureUrl);
         return userRepository.save(user);
     }
+
+    public void logout(String refreshToken) {
+        refreshTokenService.deleteByToken(refreshToken);
+    }
+
 
     private UserDto convertToUserDto(User user) {
         UserDto userDto = new UserDto();

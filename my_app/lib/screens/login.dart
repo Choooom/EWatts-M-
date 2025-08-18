@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
 import 'package:my_app/constants/route_observer.dart';
-import 'package:my_app/models/auth/sign_up_request.dart';
+import 'package:my_app/models/auth/auth_requests.dart';
 import 'package:my_app/providers/auth/auth_provider.dart';
 import 'package:my_app/screens/forgot_password.dart';
+import 'package:my_app/screens/main_screen.dart';
 import 'package:my_app/screens/sign_up.dart';
-import 'package:my_app/services/auth/auth_service.dart';
+import 'package:my_app/services/auth/oauth_service.dart';
 import 'package:my_app/state_management/theme_mode_listener.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:my_app/util/snackbar.dart';
+import 'package:my_app/util/validators.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -18,25 +20,59 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> with RouteAware {
-  final authService = AuthService();
-
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool isVisible = false;
+  final _formKey = GlobalKey<FormState>();
 
-  void login() async {
-    final email = _emailController.text;
-    final password = _passwordController.text;
+  //oauth webview toh
+  final bool _isLoading = false;
 
-    try {
-      await authService.signUpWithEmailPassword(email, password);
-    } catch (e) {
-      if (mounted) {
+  final oauthManager = OAuthManager();
+
+  @override
+  void initState() {
+    super.initState();
+
+    oauthManager.initializeDeepLinking();
+  }
+
+  void _handleGitHubLogin() {
+    oauthManager.startOAuthFlow(
+      'github',
+      context,
+      onSuccess: () {
+        // Navigate to your main app screen
+        Navigator.of(context).pushReplacementNamed('/main');
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text("Error $e")));
-      }
-    }
+        ).showSnackBar(const SnackBar(content: Text('Login successful!')));
+      },
+      onError: (error) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Login failed: $error')));
+      },
+    );
+  }
+
+  void _handleDiscordLogin() {
+    oauthManager.startOAuthFlow(
+      'discord',
+      context,
+      onSuccess: () {
+        print(
+          "It Pushed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+        );
+        Navigator.of(context).push(MainNavigation() as Route<Object?>);
+        CustomSnackBar.show(context, message: "Login Successful");
+      },
+      onError: (error) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Login failed: $error')));
+      },
+    );
   }
 
   @override
@@ -63,66 +99,81 @@ class _LogInState extends State<LogIn> with RouteAware {
 
     return Consumer(
       builder: (context, ref, child) {
+        ref.listen(authProvider, (previous, next) {
+          if (next.error != null) {
+            CustomSnackBar.show(
+              context,
+              message: next.error!,
+              backgroundColor: AppColors.redDottedLines,
+              icon: Icons.warning_amber_rounded,
+            );
+          }
+        });
+
+        final authState = ref.watch(authProvider);
         final brightness = ref.watch(themeModeProvider);
-        final loginState = ref.watch(loginProvider);
 
         return Scaffold(
           body: Transform.translate(
             offset: const Offset(0, -10),
-            child: Column(
+            child: Stack(
               children: [
-                header(width: width),
+                Column(
+                  children: [
+                    header(width: width),
 
-                h1_signin(),
-                SizedBox(height: 15),
-                h2_email(),
+                    h1_signin(),
+                    SizedBox(height: 15),
+                    h2_email(),
 
-                email_textfield(emailController: _emailController),
+                    email_textfield(emailController: _emailController),
 
-                SizedBox(height: 30),
+                    SizedBox(height: 30),
 
-                h2_password(),
+                    h2_password(),
 
-                password_textfield(
-                  passwordController: _passwordController,
-                  isVisible: isVisible,
-                  onVisibilityToggle: () => setState(() {
-                    isVisible = !isVisible;
-                  }),
+                    password_textfield(
+                      passwordController: _passwordController,
+                      isVisible: isVisible,
+                      onVisibilityToggle: () => setState(() {
+                        isVisible = !isVisible;
+                      }),
+                    ),
+
+                    SizedBox(height: 15),
+
+                    forgot_password_link(),
+
+                    SizedBox(height: 30),
+
+                    signin_button(
+                      ref: ref,
+                      emailController: _emailController,
+                      passwordController: _passwordController,
+                      formKey: _formKey,
+                    ),
+                    SizedBox(height: 15),
+
+                    or_bar(brightness: brightness),
+
+                    SizedBox(height: 15),
+
+                    oauth_accounts(
+                      isLoading: _isLoading,
+                      discordCallBack: () => _handleDiscordLogin(),
+                      githubCalllBack: () => _handleGitHubLogin(),
+                    ),
+
+                    SizedBox(height: 15),
+
+                    bottom_text(brightness: brightness),
+                  ],
                 ),
-
-                SizedBox(height: 15),
-
-                forgot_password_link(),
-
-                SizedBox(height: 30),
-
-                signin_button(
-                  emailController: _emailController,
-                  passwordController: _passwordController,
-                  ref: ref,
-                  onChange: () {
-                    if (loginState.isLoading) CircularProgressIndicator();
-                    if (loginState.hasError) Text('Error: ${loginState.error}');
-                    if (loginState.value != null) {
-                      Text(
-                        'Login successful! Token: ${loginState.value!.token}',
-                      );
-                    }
-                  },
-                ),
-
-                SizedBox(height: 15),
-
-                or_bar(brightness: brightness),
-
-                SizedBox(height: 15),
-
-                oauth_accounts(),
-
-                SizedBox(height: 15),
-
-                bottom_text(brightness: brightness),
+                if (authState.isLoading)
+                  Container(
+                    color: Colors.black.withValues(alpha: 0.3),
+                    child: const Center(child: CircularProgressIndicator()),
+                  ),
               ],
             ),
           ),
@@ -188,7 +239,15 @@ class bottom_text extends StatelessWidget {
 }
 
 class oauth_accounts extends StatelessWidget {
-  const oauth_accounts({super.key});
+  bool isLoading;
+  VoidCallback githubCalllBack;
+  VoidCallback discordCallBack;
+  oauth_accounts({
+    super.key,
+    required this.isLoading,
+    required this.githubCalllBack,
+    required this.discordCallBack,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -210,21 +269,8 @@ class oauth_accounts extends StatelessWidget {
         ),
         SizedBox(width: 15),
         GestureDetector(
-          onTap: () async {
-            const discordOAuthUrl =
-                'http://10.0.2.2:8090/auth/oauth2/authorization/discord';
-
-            if (await launchUrl(
-              Uri.parse(discordOAuthUrl),
-              mode: LaunchMode.externalApplication,
-            )) {
-              await launchUrl(
-                Uri.parse(discordOAuthUrl),
-                mode: LaunchMode.externalApplication,
-              );
-            } else {
-              throw 'Could not launch $discordOAuthUrl';
-            }
+          onTap: () {
+            discordCallBack();
           },
           child: Container(
             decoration: BoxDecoration(
@@ -241,16 +287,19 @@ class oauth_accounts extends StatelessWidget {
           ),
         ),
         SizedBox(width: 15),
-        Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: BoxBorder.all(color: AppColors.greyBgColor, width: 2),
-          ),
-          child: Padding(
-            padding: EdgeInsetsGeometry.all(7.5),
-            child: Image.asset(
-              "assets/images/on_boarding/facebook.png",
-              width: 30,
+        GestureDetector(
+          onTap: () => githubCalllBack(),
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: BoxBorder.all(color: AppColors.greyBgColor, width: 2),
+            ),
+            child: Padding(
+              padding: EdgeInsetsGeometry.all(7.5),
+              child: Image.asset(
+                "assets/images/on_boarding/facebook.png",
+                width: 30,
+              ),
             ),
           ),
         ),
@@ -294,14 +343,14 @@ class signin_button extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final WidgetRef ref;
-  final VoidCallback onChange;
+  final GlobalKey<FormState> formKey;
 
   const signin_button({
     super.key,
     required this.emailController,
     required this.passwordController,
     required this.ref,
-    required this.onChange,
+    required this.formKey,
   });
 
   @override
@@ -311,14 +360,31 @@ class signin_button extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
-          onPressed: () {
-            final req = LoginRequest(
-              email: emailController.text,
-              password: passwordController.text,
+          onPressed: () async {
+            final emailErrorMessage = Validators.email(
+              emailController.text.trim(),
+            );
+            final passwordErrorMessage = Validators.password(
+              passwordController.text.trim(),
             );
 
-            ref.read(loginProvider.notifier).login(req);
-            onChange(); // Optional callback on pressed
+            if (emailErrorMessage != null || passwordErrorMessage != null) {
+              CustomSnackBar.show(
+                context,
+                message: emailErrorMessage ?? passwordErrorMessage!,
+                backgroundColor: AppColors.redDottedLines,
+                icon: Icons.warning_amber_rounded,
+              );
+            } else {
+              final authNotifier = ref.read(authProvider.notifier);
+
+              await authNotifier.login(
+                LoginRequest(
+                  usernameOrEmail: emailController.text.trim(),
+                  password: passwordController.text.trim(),
+                ),
+              );
+            }
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blue, // button color
@@ -405,9 +471,10 @@ class password_textfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: TextField(
+      child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         controller: passwordController,
+        validator: Validators.password,
         obscureText: !isVisible,
         decoration: InputDecoration(
           prefixIcon: const Icon(Icons.lock_outlined),
@@ -451,14 +518,15 @@ class h2_password extends StatelessWidget {
 class email_textfield extends StatelessWidget {
   final TextEditingController emailController;
 
-  const email_textfield({super.key, required this.emailController});
+  email_textfield({super.key, required this.emailController});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: TextField(
+      child: TextFormField(
         keyboardType: TextInputType.emailAddress,
+        validator: Validators.email,
         controller: emailController,
         decoration: InputDecoration(
           prefixIcon: const Icon(Icons.email_outlined),

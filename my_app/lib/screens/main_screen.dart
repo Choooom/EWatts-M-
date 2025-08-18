@@ -9,6 +9,8 @@ import 'package:my_app/screens/settings.dart';
 import 'package:my_app/state_management/theme_mode_listener.dart';
 
 class MainNavigation extends StatefulWidget {
+  const MainNavigation({super.key});
+
   @override
   _MainNavigationState createState() => _MainNavigationState();
 }
@@ -22,7 +24,7 @@ class _MainNavigationState extends State<MainNavigation> {
       builder: (context, ref, chilld) {
         final brightness = ref.watch(themeModeProvider);
 
-        final List<Widget> _screens = [
+        final List<Widget> screens = [
           DashBoard(),
           PanelsScreen(),
           AnalyticsScreen(),
@@ -31,7 +33,7 @@ class _MainNavigationState extends State<MainNavigation> {
 
         return Scaffold(
           extendBody: true,
-          body: _screens[_selectedIndex],
+          body: screens[_selectedIndex],
           bottomNavigationBar: bottomNavBar(context, brightness),
         );
       },

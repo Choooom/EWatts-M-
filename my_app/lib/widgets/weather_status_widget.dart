@@ -102,7 +102,7 @@ class _WeatherStatusWidgetState extends State<WeatherStatusWidget> {
                         Padding(
                           padding: EdgeInsetsGeometry.only(left: 20),
                           child: Text(
-                            "${weather.date}",
+                            weather.date,
                             style: TextStyle(
                               color: AppColors.greyText(brightness),
                             ),

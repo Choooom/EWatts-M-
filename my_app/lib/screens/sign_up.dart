@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
-import 'package:my_app/services/auth/auth_service.dart';
+import 'package:my_app/models/auth/auth_requests.dart';
+import 'package:my_app/providers/auth/auth_provider.dart';
 import 'package:my_app/state_management/theme_mode_listener.dart';
+import 'package:my_app/util/snackbar.dart';
+import 'package:my_app/util/validators.dart';
+import 'package:my_app/widgets/verification_screen.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -12,85 +16,198 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final authService = AuthService();
-
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _usernameController = TextEditingController();
   final _phoneNumberController = TextEditingController();
 
   bool isVisible = false;
+  bool isOtpSent = false;
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     return Consumer(
       builder: (context, ref, child) {
+        ref.listen(authProvider, (previous, next) {
+          if (next.error != null) {
+            CustomSnackBar.show(
+              context,
+              message: next.error!,
+              backgroundColor: AppColors.redDottedLines,
+              icon: Icons.warning_amber_rounded,
+            );
+          }
+        });
+
+        final authState = ref.watch(authProvider);
         final brightness = ref.watch(themeModeProvider);
+        final authNotifier = ref.read(authProvider.notifier);
         return Scaffold(
-          body: Column(
+          body: Stack(
             children: [
-              header(width: width),
+              Opacity(
+                opacity: isOtpSent ? 0.7 : 1,
+                child: Column(
+                  children: [
+                    header(width: width),
 
-              h1_signup(),
+                    h1_signup(),
 
-              h2(text: "Username"),
+                    h2(text: "Username"),
 
-              SizedBox(height: 5),
+                    SizedBox(height: 5),
 
-              username_textfield(
-                usernameController: _usernameController,
-                brightness: brightness,
+                    username_textfield(
+                      usernameController: _usernameController,
+                      brightness: brightness,
+                    ),
+
+                    SizedBox(height: 10),
+
+                    h2(text: "Phone Number"),
+
+                    SizedBox(height: 5),
+
+                    phone_number_textfield(
+                      phoneNumberController: _phoneNumberController,
+                      brightness: brightness,
+                    ),
+
+                    SizedBox(height: 10),
+
+                    h2(text: "E-mail"),
+
+                    SizedBox(height: 5),
+
+                    email_textfield(emailController: _emailController),
+
+                    SizedBox(height: 10),
+
+                    h2(text: "Password"),
+
+                    SizedBox(height: 5),
+
+                    password_textfield(
+                      passwordController: _passwordController,
+                      isVisible: isVisible,
+                      onVisibleToggle: () => setState(() {
+                        isVisible = !isVisible;
+                      }),
+                    ),
+
+                    SizedBox(height: 20),
+
+                    signup_button(
+                      usernameController: _usernameController,
+                      emailController: _emailController,
+                      phoneNumberController: _phoneNumberController,
+                      passwordController: _passwordController,
+                      otpVerification: () async {
+                        final phoneNumberErrorMessage = Validators.phoneNumber(
+                          _phoneNumberController.text.trim(),
+                        );
+
+                        final emailErrorMessage = Validators.email(
+                          _emailController.text.trim(),
+                        );
+
+                        final passwordErrorMessage = Validators.password(
+                          _passwordController.text.trim(),
+                        );
+
+                        if (phoneNumberErrorMessage != null ||
+                            emailErrorMessage != null ||
+                            passwordErrorMessage != null) {
+                          CustomSnackBar.show(
+                            context,
+                            message:
+                                phoneNumberErrorMessage ??
+                                emailErrorMessage ??
+                                passwordErrorMessage!,
+                            backgroundColor: AppColors.redDottedLines,
+                            icon: Icons.warning_amber_rounded,
+                          );
+                        } else {
+                          await authNotifier.signUp(
+                            SignUpRequest(
+                              username: _usernameController.text.trim(),
+                              email: _emailController.text.trim(),
+                              phoneNumber: _phoneNumberController.text.trim(),
+                              password: _passwordController.text.trim(),
+                            ),
+                          );
+
+                          final authState = ref.read(authProvider);
+                          if (authState.error != null) {
+                            CustomSnackBar.show(
+                              context,
+                              message: authState.error!,
+                              backgroundColor: AppColors.redDottedLines,
+                              icon: Icons.warning_amber_rounded,
+                            );
+                          } else {
+                            CustomSnackBar.show(
+                              context,
+                              message: "Otp Sent!",
+                              backgroundColor: AppColors.greenActiveCircle,
+                              icon: Icons.info_outline,
+                            );
+                            setState(() {
+                              isOtpSent = true;
+                            });
+                          }
+                        }
+                      },
+                    ),
+
+                    SizedBox(height: 15),
+
+                    or_bar(brightness: brightness),
+
+                    SizedBox(height: 15),
+
+                    oauth_accounts(),
+
+                    SizedBox(height: 15),
+
+                    bottom_text(brightness: brightness),
+                  ],
+                ),
               ),
+              // Foreground Verification screen
+              if (isOtpSent)
+                Positioned.fill(
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () => setState(() {
+                      isOtpSent = !isOtpSent;
+                    }),
+                    child: Container(
+                      color: Colors.black54, // semi-transparent overlay
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: VerificationScreen(
+                          emailController: _emailController,
+                          usernameController: _usernameController,
+                          phoneNumberController: _phoneNumberController,
+                          passwordController: _passwordController,
+                          onVerificationComplete: () {
+                            setState(() => isOtpSent = false);
 
-              SizedBox(height: 10),
+                            Navigator.pop(context, true);
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
 
-              h2(text: "Phone Number"),
-
-              SizedBox(height: 5),
-
-              phone_number_textfield(
-                phoneNumberController: _phoneNumberController,
-                brightness: brightness,
-              ),
-
-              SizedBox(height: 10),
-
-              h2(text: "E-mail"),
-
-              SizedBox(height: 5),
-
-              email_textfield(emailController: _emailController),
-
-              SizedBox(height: 10),
-
-              h2(text: "Password"),
-
-              SizedBox(height: 5),
-
-              password_textfield(
-                passwordController: _passwordController,
-                isVisible: isVisible,
-                onVisibleToggle: () => setState(() {
-                  isVisible = !isVisible;
-                }),
-              ),
-
-              SizedBox(height: 20),
-
-              signup_button(),
-
-              SizedBox(height: 15),
-
-              or_bar(brightness: brightness),
-
-              SizedBox(height: 15),
-
-              oauth_accounts(),
-
-              SizedBox(height: 15),
-
-              bottom_text(brightness: brightness),
+              if (authState.isLoading)
+                Container(
+                  color: Colors.black.withValues(alpha: 0.3),
+                  child: const Center(child: CircularProgressIndicator()),
+                ),
             ],
           ),
         );
@@ -212,7 +329,20 @@ class or_bar extends StatelessWidget {
 }
 
 class signup_button extends StatelessWidget {
-  const signup_button({super.key});
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final TextEditingController phoneNumberController;
+  final TextEditingController usernameController;
+  final VoidCallback otpVerification;
+
+  const signup_button({
+    super.key,
+    required this.emailController,
+    required this.usernameController,
+    required this.phoneNumberController,
+    required this.passwordController,
+    required this.otpVerification,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -221,7 +351,7 @@ class signup_button extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: otpVerification,
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blue, // button color
             foregroundColor: Colors.white, // text color
@@ -256,10 +386,11 @@ class password_textfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: TextField(
+      child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         controller: passwordController,
         obscureText: !isVisible,
+        validator: Validators.password,
         decoration: InputDecoration(
           prefixIcon: const Icon(Icons.lock_outlined),
           suffixIcon: IconButton(
@@ -288,9 +419,10 @@ class email_textfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: TextField(
+      child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         controller: emailController,
+        validator: Validators.email,
         decoration: InputDecoration(
           prefixIcon: const Icon(Icons.email_outlined),
           hintText: "Input your email",
@@ -321,9 +453,10 @@ class phone_number_textfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: TextField(
+      child: TextFormField(
         keyboardType: TextInputType.phone,
         controller: phoneNumberController,
+        validator: Validators.phoneNumber,
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.phone, color: AppColors.greyText(brightness)),
           hintText: "Input phone number",

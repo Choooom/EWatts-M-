@@ -90,6 +90,10 @@ public class RefreshTokenService {
         }
     }
 
+    public void deleteByToken(String token) {
+        refreshTokenRepository.deleteByToken(token);
+    }
+
     public void revokeRefreshToken(String token) {
         Optional<RefreshToken> refreshToken = refreshTokenRepository.findByToken(token);
         if (refreshToken.isPresent()) {

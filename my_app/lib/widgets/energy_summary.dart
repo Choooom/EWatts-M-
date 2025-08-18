@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
 import 'package:my_app/state_management/theme_mode_listener.dart';
 import 'package:my_app/widgets/energyDiagram.dart';
-import 'package:my_app/widgets/energy_circle.dart';
 
 class EnergySummary extends StatelessWidget {
   const EnergySummary({super.key});

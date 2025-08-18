@@ -2,7 +2,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
-import 'package:my_app/models/consumption_overview.dart';
 import 'package:my_app/state_management/theme_mode_listener.dart';
 
 class PerformanceMetrics extends StatelessWidget {

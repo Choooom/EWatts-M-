@@ -35,6 +35,13 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
+    @PostMapping("/resend-otp")
+    public ResponseEntity<ApiResponse> resendOtp(@Valid @RequestBody ResendOtpRequest request) {
+        ApiResponse response = authService.resendOtp(request);
+        return ResponseEntity.ok(response);
+    }
+
+
     @PostMapping("/verify-email")
     public ResponseEntity<JwtResponse> verifyEmail(@Valid @RequestBody EmailVerificationRequest request) {
         log.info("Email verification request received for email: {}", request.getEmail());
@@ -68,10 +75,34 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
+    //outdated na toh, bulok si arcadio
     @PostMapping("/reset-password")
     public ResponseEntity<ApiResponse> resetPassword(@Valid @RequestBody ResetPasswordRequest request) {
         log.info("Reset password request received for email: {}", request.getEmail());
         ApiResponse response = authService.resetPassword(request);
+        return ResponseEntity.ok(response);
+    }
+
+    //etong tatlo na gagamiten for reset-password process
+    @PostMapping("/request-reset-password")
+    public ResponseEntity<ApiResponse> requestResetPassword(
+            @Valid @RequestBody ForgotPasswordRequest request) {
+        log.info("Password reset requested for email: {}", request.getEmail());
+        ApiResponse response = authService.forgotPassword(request);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/verify-reset-otp")
+    public ResponseEntity<ApiResponse> verifyResetOtp(@Valid @RequestBody VerifyOtpRequest request) {
+        log.info("Verifying OTP for reset password for email: {}", request.getEmail());
+        ApiResponse response = authService.verifyPasswordResetOtp(request);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/set-new-password")
+    public ResponseEntity<ApiResponse> setNewPassword(@Valid @RequestBody SetNewPasswordRequest request) {
+        log.info("Setting new password for email: {}", request.getEmail());
+        ApiResponse response = authService.setNewPassword(request);
         return ResponseEntity.ok(response);
     }
 
@@ -96,6 +127,12 @@ public class AuthController {
         } else {
             return ResponseEntity.badRequest().body("Invalid OAuth2 redirect");
         }
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(@RequestBody LogoutRequest request) {
+        authService.logout(request.getRefreshToken());
+        return ResponseEntity.ok(Map.of("message", "Logged out successfully."));
     }
 }
 

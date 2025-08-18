@@ -4,7 +4,7 @@ class TapScaleEffect extends StatefulWidget {
   final Widget child;
   final VoidCallback onTap;
 
-  const TapScaleEffect({required this.child, required this.onTap});
+  const TapScaleEffect({super.key, required this.child, required this.onTap});
 
   @override
   _TapScaleEffectState createState() => _TapScaleEffectState();

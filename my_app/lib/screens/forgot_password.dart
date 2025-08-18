@@ -1,37 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
+import 'package:my_app/models/auth/auth_requests.dart';
+import 'package:my_app/providers/auth/auth_provider.dart';
+import 'package:my_app/screens/otp_verification.dart';
 import 'package:my_app/screens/sign_up.dart';
-import 'package:my_app/services/auth/auth_service.dart';
 import 'package:my_app/state_management/theme_mode_listener.dart';
+import 'package:my_app/util/snackbar.dart';
+import 'package:my_app/util/validators.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
 
   @override
-  State<ForgotPassword> createState() => _LogInState();
+  State<ForgotPassword> createState() => _ForgotPasswordState();
 }
 
-class _LogInState extends State<ForgotPassword> {
-  final authService = AuthService();
-
+class _ForgotPasswordState extends State<ForgotPassword> {
   final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  void login() async {
-    final email = _emailController.text;
-    final password = _passwordController.text;
-
-    try {
-      await authService.signUpWithEmailPassword(email, password);
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text("Error $e")));
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,41 +25,65 @@ class _LogInState extends State<ForgotPassword> {
 
     return Consumer(
       builder: (context, ref, child) {
+        ref.listen(authProvider, (previous, next) {
+          if (next.error != null) {
+            CustomSnackBar.show(
+              context,
+              message: next.error!,
+              backgroundColor: AppColors.redDottedLines,
+              icon: Icons.warning_amber_rounded,
+            );
+          }
+        });
+
+        final authState = ref.watch(authProvider);
         final brightness = ref.watch(themeModeProvider);
         return Scaffold(
           body: Transform.translate(
             offset: const Offset(0, -10),
-            child: Column(
+            child: Stack(
               children: [
-                header(width: width),
+                Column(
+                  children: [
+                    header(width: width),
 
-                h1(),
-                SizedBox(height: 15),
+                    h1(),
+                    SizedBox(height: 15),
 
-                h2_email(),
+                    h2_email(),
 
-                email_textfield(emailController: _emailController),
+                    email_textfield(emailController: _emailController),
 
-                SizedBox(height: 30),
+                    SizedBox(height: 30),
 
-                signin_button(),
+                    signin_button(ref: ref, emailController: _emailController),
 
-                Expanded(child: SizedBox()),
+                    Expanded(child: SizedBox()),
 
-                Padding(
-                  padding: EdgeInsetsGeometry.symmetric(
-                    vertical: 50,
-                    horizontal: 25,
-                  ),
-                  child: Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () => Navigator.pop(context, true),
-                        child: Text("Go Back", style: TextStyle(fontSize: 16)),
+                    Padding(
+                      padding: EdgeInsetsGeometry.symmetric(
+                        vertical: 50,
+                        horizontal: 25,
                       ),
-                    ],
-                  ),
+                      child: Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () => Navigator.pop(context, true),
+                            child: Text(
+                              "Go Back",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
+                if (authState.isLoading)
+                  Container(
+                    color: Colors.black.withValues(alpha: 0.3),
+                    child: const Center(child: CircularProgressIndicator()),
+                  ),
               ],
             ),
           ),
@@ -224,7 +234,9 @@ class or_bar extends StatelessWidget {
 }
 
 class signin_button extends StatelessWidget {
-  const signin_button({super.key});
+  WidgetRef ref;
+  TextEditingController emailController;
+  signin_button({super.key, required this.ref, required this.emailController});
 
   @override
   Widget build(BuildContext context) {
@@ -233,7 +245,55 @@ class signin_button extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () async {
+            final emailErrorMessage = Validators.email(
+              emailController.text.trim(),
+            );
+
+            if (emailErrorMessage != null) {
+              CustomSnackBar.show(
+                context,
+                message: emailErrorMessage,
+                backgroundColor: AppColors.redDottedLines,
+                icon: Icons.warning_amber_rounded,
+              );
+            } else {
+              final authNotifier = ref.read(authProvider.notifier);
+
+              final success = await authNotifier.requestPasswordReset(
+                emailController.text,
+              );
+              if (success) {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        OtpVerification(email: emailController.text),
+                    transitionDuration: Duration(milliseconds: 500),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1, 0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(
+                            begin: begin,
+                            end: end,
+                          ).chain(CurveTween(curve: curve));
+
+                          return FadeTransition(
+                            opacity: animation,
+                            child: SlideTransition(
+                              position: animation.drive(tween),
+                              child: child,
+                            ),
+                          );
+                        },
+                  ),
+                );
+              }
+            }
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.greenActiveCircle, // button color
             foregroundColor: Colors.black, // text color
@@ -243,7 +303,7 @@ class signin_button extends StatelessWidget {
             ),
           ),
           child: const Text(
-            "Sign In",
+            "Send Email",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ),
@@ -327,9 +387,10 @@ class email_textfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: TextField(
+      child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         controller: emailController,
+        validator: Validators.email,
         decoration: InputDecoration(
           prefixIcon: const Icon(Icons.email_outlined),
           hintText: "Input your email",
