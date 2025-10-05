@@ -41,7 +41,7 @@ class _OAuthWebViewState extends State<OAuthWebView> {
             // Check if this is our custom scheme redirect
             if (request.url.startsWith('ewatts://')) {
               // Let the system handle the deep link
-              Navigator.of(context).pop();
+
               return NavigationDecision.prevent;
             }
             return NavigationDecision.navigate;
@@ -55,7 +55,7 @@ class _OAuthWebViewState extends State<OAuthWebView> {
     // The WebView will automatically trigger the deep link when it encounters yourapp://
     // We just need to close the WebView when that happens
     if (url.startsWith('ewatts://')) {
-      Navigator.of(context).pop();
+      Navigator.pop(context);
     }
   }
 

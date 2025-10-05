@@ -1,2 +1,2 @@
 const String base_url =
-    "https://textbook-howto-return-strengths.trycloudflare.com";
+    "https://clubs-specialist-table-economies.trycloudflare.com";

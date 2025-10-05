@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Getter
 public class OAuthConfig {
 
-    @Value("${oauth2.mobile-redirect-uri:https://textbook-howto-return-strengths.trycloudflare.com/api/oauth/callback}")
+    @Value("${oauth2.mobile-redirect-uri:https://districts-saves-commitments-pending.trycloudflare.com/api/oauth/callback}")
     private String mobileRedirectUri;
 
     // GitHub configuration

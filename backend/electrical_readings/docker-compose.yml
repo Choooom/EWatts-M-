@@ -1,0 +1,119 @@
+version: '4.0'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: electrical_readings_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 974602
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - microservices-network
+
+  # InfluxDB
+  influxdb:
+    image: influxdb:2.7-alpine
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: admin
+      DOCKER_INFLUXDB_INIT_PASSWORD: 974602
+      DOCKER_INFLUXDB_INIT_ORG: ewatts
+      DOCKER_INFLUXDB_INIT_BUCKET: electrical-readings
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: pHWIc0kd2m8SKTmPmcZYhgk2BmT6BnWVs6INvWbz/v7yMz2nQ/Ywd7m1qV9pLUVcjF6h79LMIDgeQMI4QBdlTg==
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+    networks:
+      - microservices-network
+
+  # Redis for caching and pub/sub
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - microservices-network
+
+  # MQTT Broker (Eclipse Mosquitto)
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - microservices-network
+
+  # Auth Service (your existing service)
+  auth-service:
+    image: auth2:latest
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/auth_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 974602
+    depends_on:
+      - postgres
+    networks:
+      - microservices-network
+
+  # Electrical Readings Service
+  electrical-service:
+    image: electrical_readings:latest
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/electrical_readings_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 974602
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+      INFLUXDB_URL: http://influxdb:8086
+      INFLUXDB_TOKEN: pHWIc0kd2m8SKTmPmcZYhgk2BmT6BnWVs6INvWbz/v7yMz2nQ/Ywd7m1qV9pLUVcjF6h79LMIDgeQMI4QBdlTg==
+      INFLUXDB_ORG: ewatts
+      INFLUXDB_BUCKET: electrical-readings
+      MQTT_BROKER_URL: tcp://mosquitto:1883
+      AUTH_SERVICE_BASE_URL: http://localhost:8081
+    depends_on:
+      - postgres
+      - influxdb
+      - redis
+      - mosquitto
+      - auth-service
+    networks:
+      - microservices-network
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - auth-service
+      - electrical-service
+    networks:
+      - microservices-network
+
+volumes:
+  postgres_data:
+  influxdb_data:
+  redis_data:
+
+networks:
+  microservices-network:
+    driver: bridge

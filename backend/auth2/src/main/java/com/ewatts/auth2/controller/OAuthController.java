@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/oauth")
+@RequestMapping("/api/auth/oauth")
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -85,7 +85,7 @@ public class OAuthController {
                     jwtResponse.getExpiresIn()
             );
 
-            log.info("OAuth login successful, redirecting to mobile app");
+            log.info("OAuth login successful, redirecting to mobile app " + redirectUrl );
             return new RedirectView(redirectUrl);
 
         } catch (Exception e) {

@@ -1,16 +1,14 @@
 import 'dart:async';
 
+import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/constants/route_observer.dart';
 import 'package:my_app/providers/auth/auth_provider.dart';
-import 'package:my_app/screens/forgot_password.dart';
 import 'package:my_app/screens/login.dart';
 import 'package:my_app/screens/main_screen.dart';
-import 'package:my_app/screens/settings.dart';
-import 'package:my_app/screens/sign_up.dart';
 import 'package:my_app/state_management/theme_mode_listener.dart';
 
 // import 'package:supabase_flutter/supabase_flutter.dart';
@@ -42,25 +40,30 @@ class MyApp extends ConsumerStatefulWidget {
 }
 
 class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
-  StreamSubscription? _sub;
   String? _accessToken;
+  AppLinks? _appLinks;
+  StreamSubscription<Uri>? _sub;
   late final ThemeModeListener _listener;
 
   void _initDeepLinkListener() async {
-    // Listen for links when app is already running
-    _sub = uriLinkStream.listen(
-      (Uri? uri) {
-        if (uri != null) _handleLink(uri);
+    _appLinks = AppLinks();
+
+    // Listen for links when the app is already running
+    _sub = _appLinks!.uriLinkStream.listen(
+      (Uri uri) {
+        _handleLink(uri);
       },
       onError: (err) {
         debugPrint("Error listening to link stream: $err");
       },
     );
 
-    // Handle when app was cold-started from deep link
+    // Handle initial (cold start) link
     try {
-      final initialUri = await getInitialUri();
-      if (initialUri != null) _handleLink(initialUri);
+      final initialUri = await _appLinks!.getInitialLink();
+      if (initialUri != null) {
+        _handleLink(initialUri);
+      }
     } on Exception catch (e) {
       debugPrint("Failed to get initial uri: $e");
     }
@@ -72,7 +75,6 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
       final accessToken = uri.queryParameters['access_token'];
       final refreshToken = uri.queryParameters['refresh_token'];
 
-      // if inside StatefulWidget
       setState(() {
         _accessToken = accessToken;
       });
@@ -86,6 +88,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(_listener);
+    _sub?.cancel();
     super.dispose();
   }
 
