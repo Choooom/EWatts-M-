@@ -25,9 +25,19 @@ public class JwtUtils {
 
     public String generateJwtToken(Authentication authentication) {
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
-        return generateTokenFromUsername(userPrincipal.getUsername());
+        //return generateTokenFromUsername(userPrincipal.getUsername());
+
+        return Jwts.builder()
+                .setSubject(userPrincipal.getUsername())
+                .claim("userId", userPrincipal.getId())
+                .claim("role", userPrincipal.getAuthorities().iterator().next().getAuthority())
+                .setIssuedAt(new Date())
+                .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .signWith(getSigningKey(), SignatureAlgorithm.HS512)
+                .compact();
     }
 
+    /*
     public String generateTokenFromUsername(String username) {
         return Jwts.builder()
                 .setSubject(username)
@@ -36,7 +46,7 @@ public class JwtUtils {
                 .signWith(getSigningKey(), SignatureAlgorithm.HS512)
                 .compact();
     }
-
+*/
     public String getUserNameFromJwtToken(String token) {
         return Jwts.parser()
                 .setSigningKey(getSigningKey())
@@ -44,6 +54,15 @@ public class JwtUtils {
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
+    }
+
+    public String getRoleFromJwtToken(String token) {
+        return Jwts.parser()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .get("role", String.class);
     }
 
     public boolean validateJwtToken(String authToken) {

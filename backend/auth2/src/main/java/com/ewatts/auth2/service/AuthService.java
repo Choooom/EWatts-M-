@@ -154,10 +154,14 @@ public class AuthService {
         User savedUser = userRepository.save(user);
 
         // Generate JWT token for immediate login
-        Authentication authentication = new UsernamePasswordAuthenticationToken(
-                savedUser.getUsername(), null, null);
 
-        String jwt = jwtUtils.generateTokenFromUsername(savedUser.getUsername());
+        UserPrincipal userPrincipal = UserPrincipal.create(savedUser);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(
+                userPrincipal, null, null);
+
+
+
+        String jwt = jwtUtils.generateJwtToken(authentication);
         String refreshToken = refreshTokenService.createRefreshToken(savedUser.getId()).getToken();
 
         UserDto userDto = convertToUserDto(savedUser);
@@ -169,9 +173,23 @@ public class AuthService {
         return refreshTokenService.findByToken(request.getRefreshToken())
                 .map(refreshTokenService::verifyExpiration)
                 .map(refreshToken -> {
-                    String token = jwtUtils.generateTokenFromUsername(refreshToken.getUser().getUsername());
-                    UserDto userDto = convertToUserDto(refreshToken.getUser());
-                    return new JwtResponse(token, refreshToken.getToken(), (long) jwtUtils.getJwtExpirationMs(), userDto);
+                    // Build an Authentication object so we can generate a token with role
+                    User user = refreshToken.getUser();
+                    UserPrincipal userPrincipal = UserPrincipal.create(user);
+
+                    Authentication authentication = new UsernamePasswordAuthenticationToken(
+                            userPrincipal, null, userPrincipal.getAuthorities()
+                    );
+
+                    String newAccessToken = jwtUtils.generateJwtToken(authentication);
+                    UserDto userDto = convertToUserDto(user);
+
+                    return new JwtResponse(
+                            newAccessToken,
+                            refreshToken.getToken(),
+                            (long) jwtUtils.getJwtExpirationMs(),
+                            userDto
+                    );
                 })
                 .orElseThrow(() -> new BadRequestException("Refresh token is not in database!"));
     }

@@ -7,8 +7,11 @@ import com.ewatts.auth2.entity.User;
 import com.ewatts.auth2.exception.BadRequestException;
 import com.ewatts.auth2.repository.UserRepository;
 import com.ewatts.auth2.security.JwtUtils;
+import com.ewatts.auth2.security.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -86,8 +89,19 @@ public class OAuthService {
         // Find or create user
         User user = findOrCreateUser(userInfo, request.getProvider());
 
+        if (user.getRole() == null || user.getRole().isEmpty()) {
+            user.setRole("USER");
+            userRepository.save(user);
+        }
+
+        UserPrincipal userPrincipal = UserPrincipal.create(user);
+
+        Authentication authentication = new UsernamePasswordAuthenticationToken(
+                userPrincipal, null, userPrincipal.getAuthorities()
+        );
+
         // Generate JWT tokens
-        String jwt = jwtUtils.generateTokenFromUsername(user.getUsername());
+        String jwt = jwtUtils.generateJwtToken(authentication);
         String refreshToken = refreshTokenService.createRefreshToken(user.getId()).getToken();
 
         UserDto userDto = convertToUserDto(user);
