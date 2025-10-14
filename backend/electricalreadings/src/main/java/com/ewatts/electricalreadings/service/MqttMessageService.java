@@ -14,6 +14,7 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -33,7 +34,18 @@ public class MqttMessageService {
     @Transactional
     public void handleIncomingMessage(Message<?> message) {
         try {
-            String payload = new String((byte[]) message.getPayload());
+            Object rawPayload = message.getPayload();
+            String payload;
+
+            if (rawPayload instanceof byte[]) {
+                payload = new String((byte[]) rawPayload, StandardCharsets.UTF_8);
+            } else if (rawPayload instanceof String) {
+                payload = (String) rawPayload;
+            } else {
+                log.warn("Unsupported payload type: {}", rawPayload.getClass().getName());
+                return;
+            }
+
             log.debug("Received MQTT message: {}", payload);
 
             ReadingMessage readingMsg = objectMapper.readValue(payload, ReadingMessage.class);
