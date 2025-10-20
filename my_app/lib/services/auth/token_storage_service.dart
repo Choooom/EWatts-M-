@@ -110,4 +110,6 @@ class TokenStorageService {
 
     return null;
   }
+
+  getTokenSync() {}
 }

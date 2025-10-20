@@ -38,6 +38,8 @@ class AuthState {
   }
 
   factory AuthState.initial() => const AuthState();
+
+  get token => null;
 }
 
 // Auth Notifier
