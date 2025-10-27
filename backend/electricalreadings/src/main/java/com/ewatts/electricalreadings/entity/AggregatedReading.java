@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "aggregated_readings", indexes = {
         @Index(name = "idx_device_period", columnList = "deviceId,aggregationType,periodStart"),
-        @Index(name = "idx_user_period", columnList = "userId,aggregationType,periodStart")
+        @Index(name = "idx_user_period", columnList = "userId,aggregationType,periodStart"),
+        @Index(name = "idx_user_type_period", columnList = "userId,deviceType,aggregationType,periodStart")
 })
 @Data
 @NoArgsConstructor
@@ -22,11 +23,15 @@ public class AggregatedReading {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Long deviceId;
 
     @Column(nullable = false)
     private Long userId;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private DeviceType deviceType;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -53,6 +58,9 @@ public class AggregatedReading {
     private Double totalEnergyConsumed;
 
     private Integer readingCount;
+
+    // Number of devices included in this aggregation
+    private Integer deviceCount;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

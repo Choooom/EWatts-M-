@@ -26,6 +26,8 @@ public class AggregationService {
     private final AggregatedReadingRepository aggregatedRepository;
     private final ElectricalDeviceRepository deviceRepository;
 
+    // ========== SCHEDULED JOBS ==========
+
     @Scheduled(cron = "${aggregation.hourly-cron}")
     @Transactional
     public void aggregateHourlyData() {
@@ -34,7 +36,7 @@ public class AggregationService {
         LocalDateTime hourStart = now.truncatedTo(ChronoUnit.HOURS).minusHours(1);
         LocalDateTime hourEnd = hourStart.plusHours(1);
 
-        aggregateForAllDevices(AggregationType.HOURLY, hourStart, hourEnd);
+        aggregateForAllUsersAndDeviceTypes(AggregationType.HOURLY, hourStart, hourEnd);
         log.info("Hourly aggregation completed");
     }
 
@@ -46,7 +48,7 @@ public class AggregationService {
         LocalDateTime dayStart = now.truncatedTo(ChronoUnit.DAYS).minusDays(1);
         LocalDateTime dayEnd = dayStart.plusDays(1);
 
-        aggregateForAllDevices(AggregationType.DAILY, dayStart, dayEnd);
+        aggregateForAllUsersAndDeviceTypes(AggregationType.DAILY, dayStart, dayEnd);
         log.info("Daily aggregation completed");
     }
 
@@ -58,30 +60,157 @@ public class AggregationService {
         LocalDateTime monthStart = now.withDayOfMonth(1).truncatedTo(ChronoUnit.DAYS).minusMonths(1);
         LocalDateTime monthEnd = monthStart.plusMonths(1);
 
-        aggregateForAllDevices(AggregationType.MONTHLY, monthStart, monthEnd);
+        aggregateForAllUsersAndDeviceTypes(AggregationType.MONTHLY, monthStart, monthEnd);
         log.info("Monthly aggregation completed");
     }
 
-    private void aggregateForAllDevices(AggregationType type,
-                                        LocalDateTime start,
-                                        LocalDateTime end) {
+    // ========== CORE AGGREGATION LOGIC ==========
+
+    /**
+     * Main aggregation method - creates both grouped (by device type) and individual device aggregations
+     */
+    private void aggregateForAllUsersAndDeviceTypes(AggregationType type,
+                                                    LocalDateTime start,
+                                                    LocalDateTime end) {
         List<ElectricalDevice> devices = deviceRepository.findAll();
 
+        // GROUP 1: Aggregate by User + Device Type (for device type analytics)
+        Map<String, List<ElectricalDevice>> deviceGroups = devices.stream()
+                .collect(Collectors.groupingBy(device ->
+                        device.getUserId() + "_" + device.getDeviceType()));
+
+        for (Map.Entry<String, List<ElectricalDevice>> entry : deviceGroups.entrySet()) {
+            List<ElectricalDevice> groupDevices = entry.getValue();
+            if (groupDevices.isEmpty()) continue;
+
+            ElectricalDevice firstDevice = groupDevices.get(0);
+            Long userId = firstDevice.getUserId();
+            DeviceType deviceType = firstDevice.getDeviceType();
+
+            try {
+                aggregateByUserAndDeviceType(userId, deviceType, groupDevices, type, start, end);
+            } catch (Exception e) {
+                log.error("Error aggregating data for user {} deviceType {}: {}",
+                        userId, deviceType, e.getMessage(), e);
+            }
+        }
+
+        // GROUP 2: Aggregate each individual device (for device-specific analytics)
         for (ElectricalDevice device : devices) {
             try {
-                aggregateDeviceData(device, type, start, end);
+                aggregateIndividualDevice(device, type, start, end);
             } catch (Exception e) {
-                log.error("Error aggregating data for device {}: {}",
+                log.error("Error aggregating individual device data for device {}: {}",
                         device.getId(), e.getMessage(), e);
             }
         }
     }
 
+    /**
+     * Aggregate all devices of the same type for a user
+     * Creates one aggregation record per (userId + deviceType + period)
+     */
     @Transactional
-    public void aggregateDeviceData(ElectricalDevice device,
-                                    AggregationType type,
-                                    LocalDateTime start,
-                                    LocalDateTime end) {
+    public void aggregateByUserAndDeviceType(Long userId,
+                                             DeviceType deviceType,
+                                             List<ElectricalDevice> devices,
+                                             AggregationType type,
+                                             LocalDateTime start,
+                                             LocalDateTime end) {
+
+        // Check if aggregation already exists
+        Optional<AggregatedReading> existing = aggregatedRepository
+                .findByUserIdAndDeviceTypeAndAggregationTypeAndPeriodStart(
+                        userId, deviceType, type, start);
+
+        if (existing.isPresent()) {
+            log.debug("Aggregation already exists for user {} deviceType {} period {}",
+                    userId, deviceType, start);
+            return;
+        }
+
+        // Collect all readings from all devices of this type for this user
+        List<ElectricalReading> allReadings = new ArrayList<>();
+        for (ElectricalDevice device : devices) {
+            List<ElectricalReading> deviceReadings = readingRepository
+                    .findReadingsForAggregation(device.getId(), start, end);
+            allReadings.addAll(deviceReadings);
+        }
+
+        if (allReadings.isEmpty()) {
+            log.debug("No readings found for user {} deviceType {} in period {}",
+                    userId, deviceType, start);
+            return;
+        }
+
+        // Calculate statistics across all readings
+        DoubleSummaryStatistics voltageStats = allReadings.stream()
+                .mapToDouble(ElectricalReading::getVoltage)
+                .summaryStatistics();
+
+        DoubleSummaryStatistics currentStats = allReadings.stream()
+                .mapToDouble(ElectricalReading::getCurrent)
+                .summaryStatistics();
+
+        DoubleSummaryStatistics powerStats = allReadings.stream()
+                .mapToDouble(ElectricalReading::getPower)
+                .summaryStatistics();
+
+        // Calculate total energy consumed across all devices of this type
+        double totalEnergyConsumed = 0.0;
+        for (ElectricalDevice device : devices) {
+            List<ElectricalReading> deviceReadings = readingRepository
+                    .findReadingsForAggregation(device.getId(), start, end);
+
+            if (!deviceReadings.isEmpty()) {
+                // Sort by timestamp to get first and last readings
+                deviceReadings.sort(Comparator.comparing(ElectricalReading::getTimestamp));
+                double energyStart = deviceReadings.get(0).getEnergy();
+                double energyEnd = deviceReadings.get(deviceReadings.size() - 1).getEnergy();
+                totalEnergyConsumed += Math.max(0, energyEnd - energyStart);
+            }
+        }
+
+        // Create grouped aggregation record
+        AggregatedReading aggregated = new AggregatedReading();
+        aggregated.setDeviceId(null); // NULL for grouped aggregations
+        aggregated.setUserId(userId);
+        aggregated.setDeviceType(deviceType);
+        aggregated.setAggregationType(type);
+        aggregated.setPeriodStart(start);
+        aggregated.setPeriodEnd(end);
+
+        aggregated.setAvgVoltage(voltageStats.getAverage());
+        aggregated.setMaxVoltage(voltageStats.getMax());
+        aggregated.setMinVoltage(voltageStats.getMin());
+
+        aggregated.setAvgCurrent(currentStats.getAverage());
+        aggregated.setMaxCurrent(currentStats.getMax());
+        aggregated.setMinCurrent(currentStats.getMin());
+
+        aggregated.setAvgPower(powerStats.getAverage());
+        aggregated.setMaxPower(powerStats.getMax());
+        aggregated.setMinPower(powerStats.getMin());
+
+        aggregated.setTotalEnergyConsumed(totalEnergyConsumed);
+        aggregated.setReadingCount(allReadings.size());
+        aggregated.setDeviceCount(devices.size());
+
+        aggregatedRepository.save(aggregated);
+
+        log.info("Created {} aggregation for user {} deviceType {}: {} devices, {} readings, {} kWh",
+                type, userId, deviceType, devices.size(), allReadings.size(), totalEnergyConsumed);
+    }
+
+    /**
+     * Aggregate individual device
+     * Creates one aggregation record per (deviceId + period)
+     */
+    @Transactional
+    public void aggregateIndividualDevice(ElectricalDevice device,
+                                          AggregationType type,
+                                          LocalDateTime start,
+                                          LocalDateTime end) {
 
         Optional<AggregatedReading> existing = aggregatedRepository
                 .findByDeviceIdAndAggregationTypeAndPeriodStart(device.getId(), type, start);
@@ -113,13 +242,15 @@ public class AggregationService {
                 .mapToDouble(ElectricalReading::getPower)
                 .summaryStatistics();
 
-        double energyStart = readings.get(readings.size() - 1).getEnergy();
-        double energyEnd = readings.get(0).getEnergy();
-        double totalEnergyConsumed = energyEnd - energyStart;
+        readings.sort(Comparator.comparing(ElectricalReading::getTimestamp));
+        double energyStart = readings.get(0).getEnergy();
+        double energyEnd = readings.get(readings.size() - 1).getEnergy();
+        double totalEnergyConsumed = Math.max(0, energyEnd - energyStart);
 
         AggregatedReading aggregated = new AggregatedReading();
         aggregated.setDeviceId(device.getId());
         aggregated.setUserId(device.getUserId());
+        aggregated.setDeviceType(device.getDeviceType());
         aggregated.setAggregationType(type);
         aggregated.setPeriodStart(start);
         aggregated.setPeriodEnd(end);
@@ -136,8 +267,9 @@ public class AggregationService {
         aggregated.setMaxPower(powerStats.getMax());
         aggregated.setMinPower(powerStats.getMin());
 
-        aggregated.setTotalEnergyConsumed(Math.max(0, totalEnergyConsumed));
+        aggregated.setTotalEnergyConsumed(totalEnergyConsumed);
         aggregated.setReadingCount(readings.size());
+        aggregated.setDeviceCount(1);
 
         aggregatedRepository.save(aggregated);
 
@@ -145,23 +277,71 @@ public class AggregationService {
                 type, device.getId(), readings.size(), totalEnergyConsumed);
     }
 
+    // ========== ANALYTICS QUERY METHODS ==========
+
+    /**
+     * Get analytics by device type (e.g., all SOLAR_PANEL devices for a user)
+     */
+    public AnalyticsResponse getAnalyticsByDeviceType(Long userId,
+                                                      DeviceType deviceType,
+                                                      AggregationType type,
+                                                      LocalDateTime start,
+                                                      LocalDateTime end) {
+        List<AggregatedReading> aggregations = aggregatedRepository
+                .findByUserIdAndDeviceTypeAndAggregationTypeAndPeriodStartBetweenOrderByPeriodStartDesc(
+                        userId, deviceType, type, start, end);
+
+        return buildAnalyticsResponse(aggregations);
+    }
+
+    /**
+     * Get analytics for a specific device by ID
+     */
+    public AnalyticsResponse getAnalyticsByDevice(Long deviceId,
+                                                  AggregationType type,
+                                                  LocalDateTime start,
+                                                  LocalDateTime end) {
+        List<AggregatedReading> aggregations = aggregatedRepository
+                .findByDeviceIdAndAggregationTypeAndPeriodStartBetweenOrderByPeriodStartDesc(
+                        deviceId, type, start, end);
+
+        return buildAnalyticsResponse(aggregations);
+    }
+
+    /**
+     * Get analytics for all devices of a user (combined overview)
+     */
+    public AnalyticsResponse getAnalyticsForUser(Long userId,
+                                                 AggregationType type,
+                                                 LocalDateTime start,
+                                                 LocalDateTime end) {
+        List<AggregatedReading> aggregations = aggregatedRepository
+                .findByUserIdAndAggregationTypeAndPeriodStartBetweenOrderByPeriodStartDesc(
+                        userId, type, start, end);
+
+        return buildAnalyticsResponse(aggregations);
+    }
+
+    /**
+     * Legacy method - kept for backward compatibility
+     * Can be used by old API endpoints if they still exist
+     */
+    @Deprecated
     public AnalyticsResponse getAnalytics(Long userId,
                                           AggregationType type,
                                           LocalDateTime start,
                                           LocalDateTime end,
                                           Long deviceId) {
-        List<AggregatedReading> aggregations;
-
         if (deviceId != null) {
-            aggregations = aggregatedRepository
-                    .findByDeviceIdAndAggregationTypeAndPeriodStartBetweenOrderByPeriodStartDesc(
-                            deviceId, type, start, end);
+            return getAnalyticsByDevice(deviceId, type, start, end);
         } else {
-            aggregations = aggregatedRepository
-                    .findByUserIdAndAggregationTypeAndPeriodStartBetweenOrderByPeriodStartDesc(
-                            userId, type, start, end);
+            return getAnalyticsForUser(userId, type, start, end);
         }
+    }
 
+    // ========== HELPER METHODS ==========
+
+    private AnalyticsResponse buildAnalyticsResponse(List<AggregatedReading> aggregations) {
         Map<Long, ElectricalDevice> deviceMap = deviceRepository.findAll().stream()
                 .collect(Collectors.toMap(ElectricalDevice::getId, d -> d));
 
@@ -187,10 +367,23 @@ public class AggregationService {
 
     private AggregatedReadingResponse mapToResponse(AggregatedReading agg,
                                                     ElectricalDevice device) {
+        String deviceName;
+
+        if (device != null) {
+            // Individual device aggregation
+            deviceName = device.getDeviceName();
+        } else if (agg.getDeviceType() != null) {
+            // Grouped aggregation - show device type with device count
+            deviceName = agg.getDeviceType().toString() +
+                    " (" + agg.getDeviceCount() + " devices)";
+        } else {
+            deviceName = "Unknown";
+        }
+
         return new AggregatedReadingResponse(
                 agg.getId(),
                 agg.getDeviceId(),
-                device != null ? device.getDeviceName() : "Unknown",
+                deviceName,
                 agg.getAggregationType(),
                 agg.getPeriodStart(),
                 agg.getPeriodEnd(),
