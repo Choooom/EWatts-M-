@@ -6,9 +6,9 @@ part of 'analytics_models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_AggregatedReadingResponse _$AggregatedReadingResponseFromJson(
+_$AggregatedReadingResponseImpl _$$AggregatedReadingResponseImplFromJson(
   Map<String, dynamic> json,
-) => _AggregatedReadingResponse(
+) => _$AggregatedReadingResponseImpl(
   id: (json['id'] as num).toInt(),
   deviceId: (json['deviceId'] as num).toInt(),
   deviceName: json['deviceName'] as String,
@@ -31,8 +31,8 @@ _AggregatedReadingResponse _$AggregatedReadingResponseFromJson(
   readingCount: (json['readingCount'] as num).toInt(),
 );
 
-Map<String, dynamic> _$AggregatedReadingResponseToJson(
-  _AggregatedReadingResponse instance,
+Map<String, dynamic> _$$AggregatedReadingResponseImplToJson(
+  _$AggregatedReadingResponseImpl instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'deviceId': instance.deviceId,
@@ -60,29 +60,28 @@ const _$AggregationTypeEnumMap = {
   AggregationType.yearly: 'YEARLY',
 };
 
-_AnalyticsResponse _$AnalyticsResponseFromJson(Map<String, dynamic> json) =>
-    _AnalyticsResponse(
-      data: (json['data'] as List<dynamic>)
-          .map(
-            (e) =>
-                AggregatedReadingResponse.fromJson(e as Map<String, dynamic>),
-          )
-          .toList(),
-      totalEnergyConsumed: (json['totalEnergyConsumed'] as num).toDouble(),
-      avgPower: (json['avgPower'] as num).toDouble(),
-      totalReadings: (json['totalReadings'] as num).toInt(),
-    );
+_$AnalyticsResponseImpl _$$AnalyticsResponseImplFromJson(
+  Map<String, dynamic> json,
+) => _$AnalyticsResponseImpl(
+  data: (json['data'] as List<dynamic>)
+      .map((e) => AggregatedReadingResponse.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  totalEnergyConsumed: (json['totalEnergyConsumed'] as num).toDouble(),
+  avgPower: (json['avgPower'] as num).toDouble(),
+  totalReadings: (json['totalReadings'] as num).toInt(),
+);
 
-Map<String, dynamic> _$AnalyticsResponseToJson(_AnalyticsResponse instance) =>
-    <String, dynamic>{
-      'data': instance.data,
-      'totalEnergyConsumed': instance.totalEnergyConsumed,
-      'avgPower': instance.avgPower,
-      'totalReadings': instance.totalReadings,
-    };
+Map<String, dynamic> _$$AnalyticsResponseImplToJson(
+  _$AnalyticsResponseImpl instance,
+) => <String, dynamic>{
+  'data': instance.data,
+  'totalEnergyConsumed': instance.totalEnergyConsumed,
+  'avgPower': instance.avgPower,
+  'totalReadings': instance.totalReadings,
+};
 
-_DeviceResponse _$DeviceResponseFromJson(Map<String, dynamic> json) =>
-    _DeviceResponse(
+_$DeviceResponseImpl _$$DeviceResponseImplFromJson(Map<String, dynamic> json) =>
+    _$DeviceResponseImpl(
       id: (json['id'] as num).toInt(),
       deviceName: json['deviceName'] as String,
       esp32Id: json['esp32Id'] as String,
@@ -105,27 +104,28 @@ _DeviceResponse _$DeviceResponseFromJson(Map<String, dynamic> json) =>
       updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
 
-Map<String, dynamic> _$DeviceResponseToJson(_DeviceResponse instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'deviceName': instance.deviceName,
-      'esp32Id': instance.esp32Id,
-      'deviceToken': instance.deviceToken,
-      'deviceType': _$DeviceTypeEnumMap[instance.deviceType]!,
-      'description': instance.description,
-      'userId': instance.userId,
-      'userEmail': instance.userEmail,
-      'ssrEnabled': instance.ssrEnabled,
-      'active': instance.active,
-      'online': instance.online,
-      'lastSeenAt': instance.lastSeenAt?.toIso8601String(),
-      'voltageCalibration': instance.voltageCalibration,
-      'currentCalibration': instance.currentCalibration,
-      'location': instance.location,
-      'installationNotes': instance.installationNotes,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
-    };
+Map<String, dynamic> _$$DeviceResponseImplToJson(
+  _$DeviceResponseImpl instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'deviceName': instance.deviceName,
+  'esp32Id': instance.esp32Id,
+  'deviceToken': instance.deviceToken,
+  'deviceType': _$DeviceTypeEnumMap[instance.deviceType]!,
+  'description': instance.description,
+  'userId': instance.userId,
+  'userEmail': instance.userEmail,
+  'ssrEnabled': instance.ssrEnabled,
+  'active': instance.active,
+  'online': instance.online,
+  'lastSeenAt': instance.lastSeenAt?.toIso8601String(),
+  'voltageCalibration': instance.voltageCalibration,
+  'currentCalibration': instance.currentCalibration,
+  'location': instance.location,
+  'installationNotes': instance.installationNotes,
+  'createdAt': instance.createdAt.toIso8601String(),
+  'updatedAt': instance.updatedAt.toIso8601String(),
+};
 
 const _$DeviceTypeEnumMap = {
   DeviceType.houseMeter: 'HOUSE_METER',
@@ -133,15 +133,16 @@ const _$DeviceTypeEnumMap = {
   DeviceType.solarPanel: 'SOLAR_PANEL',
 };
 
-_CachedAnalyticsData _$CachedAnalyticsDataFromJson(Map<String, dynamic> json) =>
-    _CachedAnalyticsData(
-      type: $enumDecode(_$AggregationTypeEnumMap, json['type']),
-      cachedAt: DateTime.parse(json['cachedAt'] as String),
-      data: AnalyticsResponse.fromJson(json['data'] as Map<String, dynamic>),
-    );
+_$CachedAnalyticsDataImpl _$$CachedAnalyticsDataImplFromJson(
+  Map<String, dynamic> json,
+) => _$CachedAnalyticsDataImpl(
+  type: $enumDecode(_$AggregationTypeEnumMap, json['type']),
+  cachedAt: DateTime.parse(json['cachedAt'] as String),
+  data: AnalyticsResponse.fromJson(json['data'] as Map<String, dynamic>),
+);
 
-Map<String, dynamic> _$CachedAnalyticsDataToJson(
-  _CachedAnalyticsData instance,
+Map<String, dynamic> _$$CachedAnalyticsDataImplToJson(
+  _$CachedAnalyticsDataImpl instance,
 ) => <String, dynamic>{
   'type': _$AggregationTypeEnumMap[instance.type]!,
   'cachedAt': instance.cachedAt.toIso8601String(),

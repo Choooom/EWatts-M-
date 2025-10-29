@@ -518,7 +518,7 @@ class h2_password extends StatelessWidget {
 class email_textfield extends StatelessWidget {
   final TextEditingController emailController;
 
-  email_textfield({super.key, required this.emailController});
+  const email_textfield({super.key, required this.emailController});
 
   @override
   Widget build(BuildContext context) {

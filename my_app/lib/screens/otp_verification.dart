@@ -454,7 +454,7 @@ class h2_email extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            "Please enter the 6 digit code\nsent to ${email}",
+            "Please enter the 6 digit code\nsent to $email",
             textAlign: TextAlign.left,
             style: TextStyle(
               fontSize: 16,

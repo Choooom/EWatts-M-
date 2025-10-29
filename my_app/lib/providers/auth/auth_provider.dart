@@ -166,7 +166,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
       );
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
-      print("Error message: ${e}");
+      print("Error message: $e");
       print("Error auth state message: ${state.error}");
     }
   }

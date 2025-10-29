@@ -25,7 +25,7 @@ class _MainNavigationState extends State<MainNavigation> {
         final brightness = ref.watch(themeModeProvider);
 
         final List<Widget> screens = [
-          DashBoard(),
+          DashBoardUpdated(),
           PanelsScreen(),
           AnalyticsScreen(),
           SettingsScreen(),

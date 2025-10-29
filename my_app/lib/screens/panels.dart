@@ -27,42 +27,6 @@ class _PanelsScreenState extends State<PanelsScreen> {
         energyLevel: 1.3,
         status: true,
       ),
-      Panels(panelName: "SOLAR S-779", efficiencyLevel: 0, energyLevel: 5.6),
-      Panels(
-        panelName: "SOLAR S-780",
-        efficiencyLevel: 85,
-        energyLevel: 1.3,
-        status: true,
-      ),
-      Panels(panelName: "SOLAR S-790", efficiencyLevel: 8, energyLevel: 0),
-      Panels(
-        panelName: "SOLAR S-784",
-        efficiencyLevel: 80,
-        energyLevel: 1.3,
-        status: true,
-      ),
-      Panels(panelName: "SOLAR S-779", efficiencyLevel: 0, energyLevel: 5.6),
-      Panels(
-        panelName: "SOLAR S-780",
-        efficiencyLevel: 85,
-        energyLevel: 1.3,
-        status: true,
-      ),
-      Panels(panelName: "SOLAR S-790", efficiencyLevel: 8, energyLevel: 0),
-      Panels(
-        panelName: "SOLAR S-784",
-        efficiencyLevel: 80,
-        energyLevel: 1.3,
-        status: true,
-      ),
-      Panels(panelName: "SOLAR S-779", efficiencyLevel: 0, energyLevel: 5.6),
-      Panels(
-        panelName: "SOLAR S-780",
-        efficiencyLevel: 85,
-        energyLevel: 1.3,
-        status: true,
-      ),
-      Panels(panelName: "SOLAR S-790", efficiencyLevel: 8, energyLevel: 0),
     ];
     final width = MediaQuery.sizeOf(context).width;
     return Consumer(

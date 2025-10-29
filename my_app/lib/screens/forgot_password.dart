@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/constants/colors.dart';
-import 'package:my_app/models/auth/auth_requests.dart';
 import 'package:my_app/providers/auth/auth_provider.dart';
 import 'package:my_app/screens/otp_verification.dart';
 import 'package:my_app/screens/sign_up.dart';

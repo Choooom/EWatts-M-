@@ -8,13 +8,13 @@ class CustomCircularProgress extends StatelessWidget {
   final Color progressColor;
 
   const CustomCircularProgress({
-    Key? key,
+    super.key,
     required this.progress,
     this.size = 60,
     this.strokeWidth = 6,
     this.backgroundColor = Colors.grey,
     this.progressColor = Colors.blue,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -4,8 +4,7 @@ class ErrorDialog extends StatelessWidget {
   final String title;
   final String message;
 
-  const ErrorDialog({Key? key, required this.title, required this.message})
-    : super(key: key);
+  const ErrorDialog({super.key, required this.title, required this.message});
 
   static Future<void> show(BuildContext context, String title, String message) {
     return showDialog(

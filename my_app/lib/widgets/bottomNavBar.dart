@@ -19,7 +19,7 @@ class _bottomNavBarState extends State<bottomNavBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    DashBoard(),
+    DashBoardUpdated(),
     PanelsScreen(),
     AnalyticsScreen(),
     SettingsScreen(),
@@ -67,7 +67,9 @@ class _bottomNavBarState extends State<bottomNavBar> {
                     onPressed: () => {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => DashBoard()),
+                        MaterialPageRoute(
+                          builder: (context) => DashBoardUpdated(),
+                        ),
                       ),
                     },
                   ),
