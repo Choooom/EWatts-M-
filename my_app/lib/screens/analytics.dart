@@ -449,7 +449,7 @@ class AnalyticsScreen extends ConsumerWidget {
                             Padding(
                               padding: const EdgeInsets.only(left: 15.0),
                               child: Text(
-                                "\${costSaved.toStringAsFixed(2)}",
+                                costSaved.toStringAsFixed(2),
                                 style: TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.w600,
@@ -518,7 +518,7 @@ class AnalyticsScreen extends ConsumerWidget {
                             Padding(
                               padding: const EdgeInsets.only(left: 15.0),
                               child: Text(
-                                "\${(costSaved * 0.2).toStringAsFixed(2)}",
+                                "${(costSaved * 0.2).toStringAsFixed(2)}",
                                 style: TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.w600,

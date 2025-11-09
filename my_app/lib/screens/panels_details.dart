@@ -281,7 +281,7 @@ class appBar extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
 
-          SizedBox(width: width * 0.32),
+          SizedBox(width: width * 0.25),
 
           Container(
             decoration: BoxDecoration(
@@ -559,7 +559,7 @@ class generatingAveragely extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(25)),
                         border: BoxBorder.all(
                           color: AppColors.whiteBodyBg(brightness),
-                          width: 2,
+                          width: 1.5,
                         ),
                       ),
                       child: Padding(

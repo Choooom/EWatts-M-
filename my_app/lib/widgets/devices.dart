@@ -58,14 +58,14 @@ class DeviceCard extends StatelessWidget {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(left: 7, top: 10),
+                padding: const EdgeInsets.only(left: 7, top: 6),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       device.deviceCount.toStringAsFixed(0),
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -82,7 +82,7 @@ class DeviceCard extends StatelessWidget {
                       device.deviceName,
                       style: TextStyle(
                         color: AppColors.greyText(brightness),
-                        fontSize: 20,
+                        fontSize: 18,
                       ),
                     ),
                   ],

@@ -27,32 +27,32 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // Leading Button
-              TapScaleEffect(
-                onTap: () => print("Menu"),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 10.0),
-                  child: Container(
-                    width: 46,
-                    height: 46,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: AppColors.whiteWidgetBg(brightness),
-                      borderRadius: BorderRadius.circular(23),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.05),
-                          blurRadius: 1,
-                        ),
-                      ],
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/icons/menu_drawer.svg',
-                      width: 25,
-                      height: 25,
-                    ),
-                  ),
-                ),
-              ),
+              // TapScaleEffect(
+              //   onTap: () => print("Menu"),
+              //   child: Padding(
+              //     padding: const EdgeInsets.only(left: 10.0),
+              //     child: Container(
+              //       width: 46,
+              //       height: 46,
+              //       alignment: Alignment.center,
+              //       decoration: BoxDecoration(
+              //         color: AppColors.whiteWidgetBg(brightness),
+              //         borderRadius: BorderRadius.circular(23),
+              //         boxShadow: [
+              //           BoxShadow(
+              //             color: Colors.black.withValues(alpha: 0.05),
+              //             blurRadius: 1,
+              //           ),
+              //         ],
+              //       ),
+              //       child: SvgPicture.asset(
+              //         'assets/icons/menu_drawer.svg',
+              //         width: 25,
+              //         height: 25,
+              //       ),
+              //     ),
+              //   ),
+              // ),
 
               // Title Section
               Expanded(
@@ -84,32 +84,32 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
 
               // Trailing Button
-              TapScaleEffect(
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  child: Container(
-                    width: 46,
-                    height: 46,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: AppColors.whiteWidgetBg(brightness),
-                      borderRadius: BorderRadius.circular(23),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.05),
-                          blurRadius: 1,
-                        ),
-                      ],
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/icons/notification.svg',
-                      width: 25,
-                      height: 25,
-                    ),
-                  ),
-                ),
-              ),
+              // TapScaleEffect(
+              //   onTap: () {},
+              //   child: Padding(
+              //     padding: const EdgeInsets.only(right: 10.0),
+              //     child: Container(
+              //       width: 46,
+              //       height: 46,
+              //       alignment: Alignment.center,
+              //       decoration: BoxDecoration(
+              //         color: AppColors.whiteWidgetBg(brightness),
+              //         borderRadius: BorderRadius.circular(23),
+              //         boxShadow: [
+              //           BoxShadow(
+              //             color: Colors.black.withValues(alpha: 0.05),
+              //             blurRadius: 1,
+              //           ),
+              //         ],
+              //       ),
+              //       child: SvgPicture.asset(
+              //         'assets/icons/notification.svg',
+              //         width: 25,
+              //         height: 25,
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         );

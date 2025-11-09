@@ -1,0 +1,4206 @@
+{
+    "predictions": [
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T00:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.9,
+                "humidity": 83.0,
+                "wind_speed": 9.3,
+                "precipitation_probability": 6.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.9,
+                "air_mass": 1.5,
+                "wind_speed": 9.3,
+                "cloud_coverage": 80.0,
+                "estimated_efficiency_factor": 0.3558239999999999
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T01:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.6,
+                "humidity": 85.0,
+                "wind_speed": 9.7,
+                "precipitation_probability": 8.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.6,
+                "air_mass": 1.5,
+                "wind_speed": 9.7,
+                "cloud_coverage": 76.0,
+                "estimated_efficiency_factor": 0.3879231999999999
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T02:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.5,
+                "humidity": 85.0,
+                "wind_speed": 7.6,
+                "precipitation_probability": 5.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.5,
+                "air_mass": 1.5,
+                "wind_speed": 7.6,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19799999999999995
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T03:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.2,
+                "humidity": 86.0,
+                "wind_speed": 8.8,
+                "precipitation_probability": 7.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.2,
+                "air_mass": 1.5,
+                "wind_speed": 8.8,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19823999999999994
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T04:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.1,
+                "humidity": 86.0,
+                "wind_speed": 9.1,
+                "precipitation_probability": 4.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.1,
+                "air_mass": 1.5,
+                "wind_speed": 9.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19831999999999997
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T05:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.1,
+                "humidity": 86.0,
+                "wind_speed": 9.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.1,
+                "air_mass": 1.5,
+                "wind_speed": 9.3,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19831999999999997
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T06:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.2,
+                "humidity": 85.0,
+                "wind_speed": 12.4,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.2,
+                "air_mass": 1.5,
+                "wind_speed": 12.4,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19823999999999994
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T07:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.2,
+                "humidity": 85.0,
+                "wind_speed": 11.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 45.0,
+                "cell_temperature": 28.325,
+                "air_mass": 1.5,
+                "wind_speed": 11.5,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19733999999999996
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T08:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.0,
+                "humidity": 89.0,
+                "wind_speed": 14.8,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 204.0,
+                "cell_temperature": 32.1,
+                "air_mass": 1.5,
+                "wind_speed": 14.8,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19431999999999996
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T09:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Near Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 27.4,
+                "humidity": 86.0,
+                "wind_speed": 18.1,
+                "precipitation_probability": 1.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 366.0,
+                "cell_temperature": 36.55,
+                "air_mass": 1.5,
+                "wind_speed": 18.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19075999999999996
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T10:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Near Gale",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.8,
+                "humidity": 84.0,
+                "wind_speed": 20.1,
+                "precipitation_probability": 5.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 512.0,
+                "cell_temperature": 40.6,
+                "air_mass": 1.5,
+                "wind_speed": 20.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18751999999999996
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T11:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Near Gale",
+                "precipitation": "Very Light Rains",
+                "temperature": 28.0,
+                "humidity": 82.0,
+                "wind_speed": 18.8,
+                "precipitation_probability": 6.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 540.0,
+                "cell_temperature": 41.5,
+                "air_mass": 1.5,
+                "wind_speed": 18.8,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18679999999999994
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T12:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Near Gale",
+                "precipitation": "Very Light Rains",
+                "temperature": 28.2,
+                "humidity": 83.0,
+                "wind_speed": 19.4,
+                "precipitation_probability": 17.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 507.0,
+                "cell_temperature": 40.875,
+                "air_mass": 1.5,
+                "wind_speed": 19.4,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18729999999999997
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T13:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 28.4,
+                "humidity": 82.0,
+                "wind_speed": 16.9,
+                "precipitation_probability": 15.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 553.0,
+                "cell_temperature": 42.225,
+                "air_mass": 1.5,
+                "wind_speed": 16.9,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18621999999999997
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T14:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 28.2,
+                "humidity": 83.0,
+                "wind_speed": 16.8,
+                "precipitation_probability": 15.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 333.0,
+                "cell_temperature": 36.525,
+                "air_mass": 1.5,
+                "wind_speed": 16.8,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19077999999999995
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T15:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 28.1,
+                "humidity": 82.0,
+                "wind_speed": 16.9,
+                "precipitation_probability": 21.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 252.0,
+                "cell_temperature": 34.4,
+                "air_mass": 1.5,
+                "wind_speed": 16.9,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19247999999999996
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T16:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Near Gale",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.9,
+                "humidity": 83.0,
+                "wind_speed": 17.6,
+                "precipitation_probability": 18.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 165.0,
+                "cell_temperature": 32.025,
+                "air_mass": 1.5,
+                "wind_speed": 17.6,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19437999999999994
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T17:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.7,
+                "humidity": 83.0,
+                "wind_speed": 16.9,
+                "precipitation_probability": 10.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 60.0,
+                "cell_temperature": 29.2,
+                "air_mass": 1.5,
+                "wind_speed": 16.9,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19663999999999995
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T18:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.6,
+                "humidity": 85.0,
+                "wind_speed": 14.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 5.0,
+                "cell_temperature": 27.725,
+                "air_mass": 1.5,
+                "wind_speed": 14.3,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19781999999999994
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T19:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.7,
+                "humidity": 84.0,
+                "wind_speed": 11.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.7,
+                "air_mass": 1.5,
+                "wind_speed": 11.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19783999999999996
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T20:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.6,
+                "humidity": 83.0,
+                "wind_speed": 12.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.6,
+                "air_mass": 1.5,
+                "wind_speed": 12.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19791999999999996
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T21:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.6,
+                "humidity": 83.0,
+                "wind_speed": 10.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.6,
+                "air_mass": 1.5,
+                "wind_speed": 10.2,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19791999999999996
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T22:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.4,
+                "humidity": 83.0,
+                "wind_speed": 10.1,
+                "precipitation_probability": 5.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.4,
+                "air_mass": 1.5,
+                "wind_speed": 10.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19807999999999998
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-03T23:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.4,
+                "humidity": 84.0,
+                "wind_speed": 11.6,
+                "precipitation_probability": 7.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.4,
+                "air_mass": 1.5,
+                "wind_speed": 11.6,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19807999999999998
+            },
+            "confidence_score": 0.9
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T00:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.3,
+                "humidity": 83.0,
+                "wind_speed": 12.0,
+                "precipitation_probability": 5.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.3,
+                "air_mass": 1.5,
+                "wind_speed": 12.0,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19815999999999995
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T01:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.4,
+                "humidity": 83.0,
+                "wind_speed": 12.8,
+                "precipitation_probability": 1.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.4,
+                "air_mass": 1.5,
+                "wind_speed": 12.8,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19807999999999998
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T02:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.2,
+                "humidity": 85.0,
+                "wind_speed": 11.7,
+                "precipitation_probability": 5.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.2,
+                "air_mass": 1.5,
+                "wind_speed": 11.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19823999999999994
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T03:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.1,
+                "humidity": 85.0,
+                "wind_speed": 10.4,
+                "precipitation_probability": 6.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.1,
+                "air_mass": 1.5,
+                "wind_speed": 10.4,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19831999999999997
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T04:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.1,
+                "humidity": 84.0,
+                "wind_speed": 10.5,
+                "precipitation_probability": 6.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.1,
+                "air_mass": 1.5,
+                "wind_speed": 10.5,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19831999999999997
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T05:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.0,
+                "humidity": 85.0,
+                "wind_speed": 10.7,
+                "precipitation_probability": 5.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.0,
+                "air_mass": 1.5,
+                "wind_speed": 10.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19839999999999997
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T06:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 26.9,
+                "humidity": 85.0,
+                "wind_speed": 12.5,
+                "precipitation_probability": 2.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 26.9,
+                "air_mass": 1.5,
+                "wind_speed": 12.5,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19847999999999996
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T07:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.2,
+                "humidity": 84.0,
+                "wind_speed": 15.9,
+                "precipitation_probability": 1.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 34.0,
+                "cell_temperature": 28.05,
+                "air_mass": 1.5,
+                "wind_speed": 15.9,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19755999999999996
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T08:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.4,
+                "humidity": 84.0,
+                "wind_speed": 14.6,
+                "precipitation_probability": 3.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 98.0,
+                "cell_temperature": 29.849999999999998,
+                "air_mass": 1.5,
+                "wind_speed": 14.6,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19611999999999996
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T09:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Near Gale",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.6,
+                "humidity": 83.0,
+                "wind_speed": 20.0,
+                "precipitation_probability": 3.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 221.0,
+                "cell_temperature": 33.125,
+                "air_mass": 1.5,
+                "wind_speed": 20.0,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19349999999999995
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T10:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Gale",
+                "precipitation": "Very Light Rains",
+                "temperature": 28.0,
+                "humidity": 81.0,
+                "wind_speed": 21.2,
+                "precipitation_probability": 4.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 288.0,
+                "cell_temperature": 35.2,
+                "air_mass": 1.5,
+                "wind_speed": 21.2,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19183999999999996
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T11:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Gale",
+                "precipitation": "Very Light Rains",
+                "temperature": 28.3,
+                "humidity": 80.0,
+                "wind_speed": 21.9,
+                "precipitation_probability": 9.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 255.0,
+                "cell_temperature": 34.675,
+                "air_mass": 1.5,
+                "wind_speed": 21.9,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19225999999999996
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T12:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Near Gale",
+                "precipitation": "Very Light Rains",
+                "temperature": 28.4,
+                "humidity": 80.0,
+                "wind_speed": 20.1,
+                "precipitation_probability": 22.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 328.0,
+                "cell_temperature": 36.6,
+                "air_mass": 1.5,
+                "wind_speed": 20.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19071999999999995
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T13:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Gale",
+                "precipitation": "Very Light Rains",
+                "temperature": 28.6,
+                "humidity": 79.0,
+                "wind_speed": 24.2,
+                "precipitation_probability": 16.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 429.0,
+                "cell_temperature": 39.325,
+                "air_mass": 1.5,
+                "wind_speed": 24.2,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18853999999999996
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T14:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Gale",
+                "precipitation": "Very Light Rains",
+                "temperature": 28.6,
+                "humidity": 79.0,
+                "wind_speed": 26.8,
+                "precipitation_probability": 19.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 379.0,
+                "cell_temperature": 38.075,
+                "air_mass": 1.5,
+                "wind_speed": 26.8,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18953999999999996
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T15:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 29.0,
+                "humidity": 77.0,
+                "wind_speed": 28.7,
+                "precipitation_probability": 1.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 298.0,
+                "cell_temperature": 36.45,
+                "air_mass": 1.5,
+                "wind_speed": 28.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19083999999999995
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T16:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 28.7,
+                "humidity": 79.0,
+                "wind_speed": 28.8,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 187.0,
+                "cell_temperature": 33.375,
+                "air_mass": 1.5,
+                "wind_speed": 28.8,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19329999999999997
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T17:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 28.4,
+                "humidity": 80.0,
+                "wind_speed": 28.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 81.0,
+                "cell_temperature": 30.424999999999997,
+                "air_mass": 1.5,
+                "wind_speed": 28.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19565999999999997
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T18:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 28.1,
+                "humidity": 82.0,
+                "wind_speed": 28.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 5.0,
+                "cell_temperature": 28.225,
+                "air_mass": 1.5,
+                "wind_speed": 28.3,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19741999999999996
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T19:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 27.7,
+                "humidity": 83.0,
+                "wind_speed": 30.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.7,
+                "air_mass": 1.5,
+                "wind_speed": 30.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19783999999999996
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T20:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Storm",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.1,
+                "humidity": 86.0,
+                "wind_speed": 31.8,
+                "precipitation_probability": 2.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.1,
+                "air_mass": 1.5,
+                "wind_speed": 31.8,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19831999999999997
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T21:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Violent Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 27.1,
+                "humidity": 87.0,
+                "wind_speed": 36.4,
+                "precipitation_probability": 1.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.1,
+                "air_mass": 1.5,
+                "wind_speed": 36.4,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19831999999999997
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T22:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Violent Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 27.1,
+                "humidity": 88.0,
+                "wind_speed": 36.0,
+                "precipitation_probability": 1.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.1,
+                "air_mass": 1.5,
+                "wind_speed": 36.0,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19831999999999997
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-04T23:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Typhoon",
+                "precipitation": "Very Light Rains",
+                "temperature": 27.0,
+                "humidity": 88.0,
+                "wind_speed": 37.8,
+                "precipitation_probability": 3.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.0,
+                "air_mass": 1.5,
+                "wind_speed": 37.8,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19839999999999997
+            },
+            "confidence_score": 0.85
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T00:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Typhoon",
+                "precipitation": "No Precipitation",
+                "temperature": 27.0,
+                "humidity": 87.0,
+                "wind_speed": 38.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.0,
+                "air_mass": 1.5,
+                "wind_speed": 38.3,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19839999999999997
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T01:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Violent Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 27.0,
+                "humidity": 87.0,
+                "wind_speed": 36.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.0,
+                "air_mass": 1.5,
+                "wind_speed": 36.0,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19839999999999997
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T02:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Violent Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 27.0,
+                "humidity": 88.0,
+                "wind_speed": 35.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.0,
+                "air_mass": 1.5,
+                "wind_speed": 35.3,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19839999999999997
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T03:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 27.0,
+                "humidity": 88.0,
+                "wind_speed": 32.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.0,
+                "air_mass": 1.5,
+                "wind_speed": 32.2,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19839999999999997
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T04:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 27.0,
+                "humidity": 88.0,
+                "wind_speed": 31.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.0,
+                "air_mass": 1.5,
+                "wind_speed": 31.2,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19839999999999997
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T05:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 26.9,
+                "humidity": 88.0,
+                "wind_speed": 31.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 26.9,
+                "air_mass": 1.5,
+                "wind_speed": 31.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19847999999999996
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T06:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 27.0,
+                "humidity": 87.0,
+                "wind_speed": 30.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.0,
+                "air_mass": 1.5,
+                "wind_speed": 30.9,
+                "cloud_coverage": 92.0,
+                "estimated_efficiency_factor": 0.2618879999999999
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T07:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 27.2,
+                "humidity": 86.0,
+                "wind_speed": 30.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 75.0,
+                "cell_temperature": 29.075,
+                "air_mass": 1.5,
+                "wind_speed": 30.9,
+                "cloud_coverage": 84.0,
+                "estimated_efficiency_factor": 0.3226536
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T08:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 27.5,
+                "humidity": 84.0,
+                "wind_speed": 32.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 262.0,
+                "cell_temperature": 34.05,
+                "air_mass": 1.5,
+                "wind_speed": 32.1,
+                "cloud_coverage": 87.0,
+                "estimated_efficiency_factor": 0.29299519999999996
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T09:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 28.1,
+                "humidity": 81.0,
+                "wind_speed": 31.4,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 453.0,
+                "cell_temperature": 39.425000000000004,
+                "air_mass": 1.5,
+                "wind_speed": 31.4,
+                "cloud_coverage": 88.0,
+                "estimated_efficiency_factor": 0.27892079999999997
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T10:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Storm",
+                "precipitation": "No Precipitation",
+                "temperature": 28.5,
+                "humidity": 78.0,
+                "wind_speed": 29.4,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 666.0,
+                "cell_temperature": 45.150000000000006,
+                "air_mass": 1.5,
+                "wind_speed": 29.4,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18387999999999996
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T11:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 28.9,
+                "humidity": 76.0,
+                "wind_speed": 28.4,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 743.0,
+                "cell_temperature": 47.474999999999994,
+                "air_mass": 1.5,
+                "wind_speed": 28.4,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18201999999999996
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T12:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 29.2,
+                "humidity": 75.0,
+                "wind_speed": 26.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 815.0,
+                "cell_temperature": 49.575,
+                "air_mass": 1.5,
+                "wind_speed": 26.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18033999999999994
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T13:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 29.5,
+                "humidity": 73.0,
+                "wind_speed": 24.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 783.0,
+                "cell_temperature": 49.075,
+                "air_mass": 1.5,
+                "wind_speed": 24.0,
+                "cloud_coverage": 62.0,
+                "estimated_efficiency_factor": 0.4554648
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T14:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 29.4,
+                "humidity": 74.0,
+                "wind_speed": 23.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 636.0,
+                "cell_temperature": 45.3,
+                "air_mass": 1.5,
+                "wind_speed": 23.2,
+                "cloud_coverage": 69.0,
+                "estimated_efficiency_factor": 0.4116224000000001
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T15:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 29.2,
+                "humidity": 75.0,
+                "wind_speed": 24.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 493.0,
+                "cell_temperature": 41.525,
+                "air_mass": 1.5,
+                "wind_speed": 24.1,
+                "cloud_coverage": 87.0,
+                "estimated_efficiency_factor": 0.2839055999999999
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T16:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 28.8,
+                "humidity": 77.0,
+                "wind_speed": 23.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 329.0,
+                "cell_temperature": 37.025,
+                "air_mass": 1.5,
+                "wind_speed": 23.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19037999999999994
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T17:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Near Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 28.6,
+                "humidity": 79.0,
+                "wind_speed": 19.6,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 105.0,
+                "cell_temperature": 31.225,
+                "air_mass": 1.5,
+                "wind_speed": 19.6,
+                "cloud_coverage": 96.0,
+                "estimated_efficiency_factor": 0.22622319999999999
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T18:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Near Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 28.4,
+                "humidity": 81.0,
+                "wind_speed": 17.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 7.0,
+                "cell_temperature": 28.575,
+                "air_mass": 1.5,
+                "wind_speed": 17.9,
+                "cloud_coverage": 81.0,
+                "estimated_efficiency_factor": 0.3469663999999999
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T19:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.2,
+                "humidity": 83.0,
+                "wind_speed": 16.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.2,
+                "air_mass": 1.5,
+                "wind_speed": 16.3,
+                "cloud_coverage": 83.0,
+                "estimated_efficiency_factor": 0.33169919999999997
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T20:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.2,
+                "humidity": 83.0,
+                "wind_speed": 15.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.2,
+                "air_mass": 1.5,
+                "wind_speed": 15.0,
+                "cloud_coverage": 81.0,
+                "estimated_efficiency_factor": 0.34749439999999987
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T21:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.1,
+                "humidity": 84.0,
+                "wind_speed": 14.6,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.1,
+                "air_mass": 1.5,
+                "wind_speed": 14.6,
+                "cloud_coverage": 78.0,
+                "estimated_efficiency_factor": 0.3713375999999999
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T22:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.0,
+                "humidity": 84.0,
+                "wind_speed": 13.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.0,
+                "air_mass": 1.5,
+                "wind_speed": 13.0,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19759999999999994
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-05T23:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.0,
+                "humidity": 84.0,
+                "wind_speed": 11.8,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.0,
+                "air_mass": 1.5,
+                "wind_speed": 11.8,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19759999999999994
+            },
+            "confidence_score": 0.8
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T00:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.9,
+                "humidity": 84.0,
+                "wind_speed": 10.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.9,
+                "air_mass": 1.5,
+                "wind_speed": 10.0,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19767999999999997
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T01:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.8,
+                "humidity": 85.0,
+                "wind_speed": 8.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.8,
+                "air_mass": 1.5,
+                "wind_speed": 8.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19775999999999996
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T02:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.7,
+                "humidity": 86.0,
+                "wind_speed": 8.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.7,
+                "air_mass": 1.5,
+                "wind_speed": 8.3,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19783999999999996
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T03:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.6,
+                "humidity": 87.0,
+                "wind_speed": 9.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.6,
+                "air_mass": 1.5,
+                "wind_speed": 9.0,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19791999999999996
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T04:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.5,
+                "humidity": 87.0,
+                "wind_speed": 8.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.5,
+                "air_mass": 1.5,
+                "wind_speed": 8.3,
+                "cloud_coverage": 84.0,
+                "estimated_efficiency_factor": 0.32471999999999995
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T05:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.4,
+                "humidity": 87.0,
+                "wind_speed": 9.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.4,
+                "air_mass": 1.5,
+                "wind_speed": 9.7,
+                "cloud_coverage": 62.0,
+                "estimated_efficiency_factor": 0.49916160000000004
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T06:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.3,
+                "humidity": 88.0,
+                "wind_speed": 11.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 1.0,
+                "cell_temperature": 27.325,
+                "air_mass": 1.5,
+                "wind_speed": 11.9,
+                "cloud_coverage": 38.0,
+                "estimated_efficiency_factor": 0.6895272
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T07:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.4,
+                "humidity": 88.0,
+                "wind_speed": 14.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 93.0,
+                "cell_temperature": 29.724999999999998,
+                "air_mass": 1.5,
+                "wind_speed": 14.5,
+                "cloud_coverage": 37.0,
+                "estimated_efficiency_factor": 0.6906943999999999
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T08:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.8,
+                "humidity": 85.0,
+                "wind_speed": 16.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 301.0,
+                "cell_temperature": 35.325,
+                "air_mass": 1.5,
+                "wind_speed": 16.1,
+                "cloud_coverage": 65.0,
+                "estimated_efficiency_factor": 0.460176
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T09:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.6,
+                "humidity": 81.0,
+                "wind_speed": 16.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 480.0,
+                "cell_temperature": 40.6,
+                "air_mass": 1.5,
+                "wind_speed": 16.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18751999999999996
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T10:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 29.1,
+                "humidity": 78.0,
+                "wind_speed": 14.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 576.0,
+                "cell_temperature": 43.5,
+                "air_mass": 1.5,
+                "wind_speed": 14.5,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18519999999999998
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T11:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 29.7,
+                "humidity": 75.0,
+                "wind_speed": 14.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 748.0,
+                "cell_temperature": 48.4,
+                "air_mass": 1.5,
+                "wind_speed": 14.0,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18127999999999997
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T12:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 30.2,
+                "humidity": 72.0,
+                "wind_speed": 14.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 847.0,
+                "cell_temperature": 51.375,
+                "air_mass": 1.5,
+                "wind_speed": 14.2,
+                "cloud_coverage": 93.0,
+                "estimated_efficiency_factor": 0.2289919999999999
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T13:00",
+            "weather_condition": {
+                "cloud_description": "Clear or Sunny Skies",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 30.5,
+                "humidity": 71.0,
+                "wind_speed": 12.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 832.0,
+                "cell_temperature": 51.3,
+                "air_mass": 1.5,
+                "wind_speed": 12.7,
+                "cloud_coverage": 9.0,
+                "estimated_efficiency_factor": 0.8303744000000001
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T14:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 30.5,
+                "humidity": 71.0,
+                "wind_speed": 13.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 742.0,
+                "cell_temperature": 49.05,
+                "air_mass": 1.5,
+                "wind_speed": 13.0,
+                "cloud_coverage": 68.0,
+                "estimated_efficiency_factor": 0.41213279999999997
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T15:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 30.3,
+                "humidity": 73.0,
+                "wind_speed": 12.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 570.0,
+                "cell_temperature": 44.55,
+                "air_mass": 1.5,
+                "wind_speed": 12.0,
+                "cloud_coverage": 54.0,
+                "estimated_efficiency_factor": 0.5235823999999999
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T16:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 30.1,
+                "humidity": 74.0,
+                "wind_speed": 11.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 372.0,
+                "cell_temperature": 39.400000000000006,
+                "air_mass": 1.5,
+                "wind_speed": 11.3,
+                "cloud_coverage": 86.0,
+                "estimated_efficiency_factor": 0.2940288
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T17:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 29.8,
+                "humidity": 75.0,
+                "wind_speed": 9.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 142.0,
+                "cell_temperature": 33.35,
+                "air_mass": 1.5,
+                "wind_speed": 9.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19331999999999996
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T18:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 29.5,
+                "humidity": 77.0,
+                "wind_speed": 6.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 8.0,
+                "cell_temperature": 29.7,
+                "air_mass": 1.5,
+                "wind_speed": 6.5,
+                "cloud_coverage": 71.0,
+                "estimated_efficiency_factor": 0.42387840000000004
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T19:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 29.2,
+                "humidity": 78.0,
+                "wind_speed": 4.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 29.2,
+                "air_mass": 1.5,
+                "wind_speed": 4.5,
+                "cloud_coverage": 21.0,
+                "estimated_efficiency_factor": 0.8180223999999999
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T20:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.9,
+                "humidity": 80.0,
+                "wind_speed": 3.8,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.9,
+                "air_mass": 1.5,
+                "wind_speed": 3.8,
+                "cloud_coverage": 20.0,
+                "estimated_efficiency_factor": 0.826896
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T21:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.7,
+                "humidity": 81.0,
+                "wind_speed": 4.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.7,
+                "air_mass": 1.5,
+                "wind_speed": 4.0,
+                "cloud_coverage": 47.0,
+                "estimated_efficiency_factor": 0.6147648
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T22:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.5,
+                "humidity": 81.0,
+                "wind_speed": 5.4,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.5,
+                "air_mass": 1.5,
+                "wind_speed": 5.4,
+                "cloud_coverage": 73.0,
+                "estimated_efficiency_factor": 0.41017600000000004
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-06T23:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.4,
+                "humidity": 82.0,
+                "wind_speed": 6.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.4,
+                "air_mass": 1.5,
+                "wind_speed": 6.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19727999999999996
+            },
+            "confidence_score": 0.75
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T00:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.2,
+                "humidity": 83.0,
+                "wind_speed": 6.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.2,
+                "air_mass": 1.5,
+                "wind_speed": 6.1,
+                "cloud_coverage": 76.0,
+                "estimated_efficiency_factor": 0.3869823999999999
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T01:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.0,
+                "humidity": 84.0,
+                "wind_speed": 6.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.0,
+                "air_mass": 1.5,
+                "wind_speed": 6.2,
+                "cloud_coverage": 51.0,
+                "estimated_efficiency_factor": 0.584896
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T02:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.9,
+                "humidity": 85.0,
+                "wind_speed": 5.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.9,
+                "air_mass": 1.5,
+                "wind_speed": 5.9,
+                "cloud_coverage": 27.0,
+                "estimated_efficiency_factor": 0.7749056000000001
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T03:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.7,
+                "humidity": 86.0,
+                "wind_speed": 5.6,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.7,
+                "air_mass": 1.5,
+                "wind_speed": 5.6,
+                "cloud_coverage": 43.0,
+                "estimated_efficiency_factor": 0.6489151999999999
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T04:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.5,
+                "humidity": 87.0,
+                "wind_speed": 5.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.5,
+                "air_mass": 1.5,
+                "wind_speed": 5.2,
+                "cloud_coverage": 58.0,
+                "estimated_efficiency_factor": 0.53064
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T05:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.5,
+                "humidity": 88.0,
+                "wind_speed": 5.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.5,
+                "air_mass": 1.5,
+                "wind_speed": 5.2,
+                "cloud_coverage": 74.0,
+                "estimated_efficiency_factor": 0.40392
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T06:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.5,
+                "humidity": 88.0,
+                "wind_speed": 5.6,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.5,
+                "air_mass": 1.5,
+                "wind_speed": 5.6,
+                "cloud_coverage": 58.0,
+                "estimated_efficiency_factor": 0.53064
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T07:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.6,
+                "humidity": 87.0,
+                "wind_speed": 6.8,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 110.0,
+                "cell_temperature": 30.35,
+                "air_mass": 1.5,
+                "wind_speed": 6.8,
+                "cloud_coverage": 42.0,
+                "estimated_efficiency_factor": 0.6497904
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T08:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.9,
+                "humidity": 85.0,
+                "wind_speed": 7.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 299.0,
+                "cell_temperature": 35.375,
+                "air_mass": 1.5,
+                "wind_speed": 7.9,
+                "cloud_coverage": 26.0,
+                "estimated_efficiency_factor": 0.759132
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T09:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 28.6,
+                "humidity": 80.0,
+                "wind_speed": 8.6,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 489.0,
+                "cell_temperature": 40.825,
+                "air_mass": 1.5,
+                "wind_speed": 8.6,
+                "cloud_coverage": 18.0,
+                "estimated_efficiency_factor": 0.8018152
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T10:00",
+            "weather_condition": {
+                "cloud_description": "Clear or Sunny Skies",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 29.5,
+                "humidity": 74.0,
+                "wind_speed": 9.4,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 670.0,
+                "cell_temperature": 46.25,
+                "air_mass": 1.5,
+                "wind_speed": 9.4,
+                "cloud_coverage": 10.0,
+                "estimated_efficiency_factor": 0.8418
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T11:00",
+            "weather_condition": {
+                "cloud_description": "Clear or Sunny Skies",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 30.3,
+                "humidity": 70.0,
+                "wind_speed": 9.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 804.0,
+                "cell_temperature": 50.400000000000006,
+                "air_mass": 1.5,
+                "wind_speed": 9.0,
+                "cloud_coverage": 2.0,
+                "estimated_efficiency_factor": 0.8840256
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T12:00",
+            "weather_condition": {
+                "cloud_description": "Clear or Sunny Skies",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 30.7,
+                "humidity": 68.0,
+                "wind_speed": 6.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 862.0,
+                "cell_temperature": 52.25,
+                "air_mass": 1.5,
+                "wind_speed": 6.5,
+                "cloud_coverage": 8.0,
+                "estimated_efficiency_factor": 0.8339759999999999
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T13:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy",
+                "wind_description": "Light Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 31.0,
+                "humidity": 67.0,
+                "wind_speed": 3.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 841.0,
+                "cell_temperature": 52.025,
+                "air_mass": 1.5,
+                "wind_speed": 3.2,
+                "cloud_coverage": 14.0,
+                "estimated_efficiency_factor": 0.7920072
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T14:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy",
+                "wind_description": "Light Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 31.0,
+                "humidity": 68.0,
+                "wind_speed": 1.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 747.0,
+                "cell_temperature": 49.675,
+                "air_mass": 1.5,
+                "wind_speed": 1.9,
+                "cloud_coverage": 20.0,
+                "estimated_efficiency_factor": 0.757092
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T15:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy",
+                "wind_description": "Light Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 30.7,
+                "humidity": 70.0,
+                "wind_speed": 2.3,
+                "precipitation_probability": 2.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 595.0,
+                "cell_temperature": 45.575,
+                "air_mass": 1.5,
+                "wind_speed": 2.3,
+                "cloud_coverage": 25.0,
+                "estimated_efficiency_factor": 0.73416
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T16:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 30.2,
+                "humidity": 73.0,
+                "wind_speed": 4.4,
+                "precipitation_probability": 2.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 398.0,
+                "cell_temperature": 40.15,
+                "air_mass": 1.5,
+                "wind_speed": 4.4,
+                "cloud_coverage": 31.0,
+                "estimated_efficiency_factor": 0.7064288
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T17:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "Very Light Rains",
+                "temperature": 29.7,
+                "humidity": 76.0,
+                "wind_speed": 6.5,
+                "precipitation_probability": 2.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 176.0,
+                "cell_temperature": 34.1,
+                "air_mass": 1.5,
+                "wind_speed": 6.5,
+                "cloud_coverage": 36.0,
+                "estimated_efficiency_factor": 0.6860832
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T18:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 29.4,
+                "humidity": 78.0,
+                "wind_speed": 7.8,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 25.0,
+                "cell_temperature": 30.025,
+                "air_mass": 1.5,
+                "wind_speed": 7.8,
+                "cloud_coverage": 47.0,
+                "estimated_efficiency_factor": 0.6114576
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T19:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 29.1,
+                "humidity": 80.0,
+                "wind_speed": 9.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 29.1,
+                "air_mass": 1.5,
+                "wind_speed": 9.2,
+                "cloud_coverage": 58.0,
+                "estimated_efficiency_factor": 0.5272096000000001
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T20:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 28.9,
+                "humidity": 82.0,
+                "wind_speed": 10.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.9,
+                "air_mass": 1.5,
+                "wind_speed": 10.2,
+                "cloud_coverage": 69.0,
+                "estimated_efficiency_factor": 0.4410112000000001
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T21:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 28.6,
+                "humidity": 83.0,
+                "wind_speed": 10.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.6,
+                "air_mass": 1.5,
+                "wind_speed": 10.7,
+                "cloud_coverage": 64.0,
+                "estimated_efficiency_factor": 0.4809728
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T22:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 28.4,
+                "humidity": 84.0,
+                "wind_speed": 10.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.4,
+                "air_mass": 1.5,
+                "wind_speed": 10.7,
+                "cloud_coverage": 60.0,
+                "estimated_efficiency_factor": 0.512928
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-07T23:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.2,
+                "humidity": 85.0,
+                "wind_speed": 10.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.2,
+                "air_mass": 1.5,
+                "wind_speed": 10.9,
+                "cloud_coverage": 55.0,
+                "estimated_efficiency_factor": 0.5528319999999999
+            },
+            "confidence_score": 0.7
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T00:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.0,
+                "humidity": 85.0,
+                "wind_speed": 10.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.0,
+                "air_mass": 1.5,
+                "wind_speed": 10.9,
+                "cloud_coverage": 70.0,
+                "estimated_efficiency_factor": 0.43472000000000005
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T01:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.9,
+                "humidity": 85.0,
+                "wind_speed": 10.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.9,
+                "air_mass": 1.5,
+                "wind_speed": 10.9,
+                "cloud_coverage": 85.0,
+                "estimated_efficiency_factor": 0.31628799999999996
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T02:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.8,
+                "humidity": 85.0,
+                "wind_speed": 10.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.8,
+                "air_mass": 1.5,
+                "wind_speed": 10.5,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19775999999999996
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T03:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.7,
+                "humidity": 85.0,
+                "wind_speed": 10.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.7,
+                "air_mass": 1.5,
+                "wind_speed": 10.2,
+                "cloud_coverage": 98.0,
+                "estimated_efficiency_factor": 0.21366719999999997
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T04:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.6,
+                "humidity": 84.0,
+                "wind_speed": 10.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.6,
+                "air_mass": 1.5,
+                "wind_speed": 10.0,
+                "cloud_coverage": 96.0,
+                "estimated_efficiency_factor": 0.2295872
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T05:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.6,
+                "humidity": 84.0,
+                "wind_speed": 10.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.6,
+                "air_mass": 1.5,
+                "wind_speed": 10.1,
+                "cloud_coverage": 94.0,
+                "estimated_efficiency_factor": 0.2454208
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T06:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.6,
+                "humidity": 84.0,
+                "wind_speed": 11.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.6,
+                "air_mass": 1.5,
+                "wind_speed": 11.3,
+                "cloud_coverage": 79.0,
+                "estimated_efficiency_factor": 0.3641727999999999
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T07:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.7,
+                "humidity": 85.0,
+                "wind_speed": 13.4,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 80.0,
+                "cell_temperature": 29.7,
+                "air_mass": 1.5,
+                "wind_speed": 13.4,
+                "cloud_coverage": 63.0,
+                "estimated_efficiency_factor": 0.4866752
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T08:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.9,
+                "humidity": 84.0,
+                "wind_speed": 15.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 226.0,
+                "cell_temperature": 33.55,
+                "air_mass": 1.5,
+                "wind_speed": 15.1,
+                "cloud_coverage": 48.0,
+                "estimated_efficiency_factor": 0.5949328
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T09:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.4,
+                "humidity": 81.0,
+                "wind_speed": 17.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 393.0,
+                "cell_temperature": 38.225,
+                "air_mass": 1.5,
+                "wind_speed": 17.1,
+                "cloud_coverage": 53.0,
+                "estimated_efficiency_factor": 0.5455296
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T10:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Near Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 29.0,
+                "humidity": 76.0,
+                "wind_speed": 19.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 578.0,
+                "cell_temperature": 43.45,
+                "air_mass": 1.5,
+                "wind_speed": 19.1,
+                "cloud_coverage": 57.0,
+                "estimated_efficiency_factor": 0.5038528000000001
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T11:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Near Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 29.6,
+                "humidity": 72.0,
+                "wind_speed": 20.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 730.0,
+                "cell_temperature": 47.85,
+                "air_mass": 1.5,
+                "wind_speed": 20.5,
+                "cloud_coverage": 62.0,
+                "estimated_efficiency_factor": 0.45793439999999996
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T12:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Near Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 29.9,
+                "humidity": 70.0,
+                "wind_speed": 20.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 784.0,
+                "cell_temperature": 49.5,
+                "air_mass": 1.5,
+                "wind_speed": 20.2,
+                "cloud_coverage": 60.0,
+                "estimated_efficiency_factor": 0.46904
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T13:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Near Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 30.1,
+                "humidity": 68.0,
+                "wind_speed": 18.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 787.0,
+                "cell_temperature": 49.775000000000006,
+                "air_mass": 1.5,
+                "wind_speed": 18.9,
+                "cloud_coverage": 57.0,
+                "estimated_efficiency_factor": 0.49008960000000007
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T14:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Near Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 30.2,
+                "humidity": 67.0,
+                "wind_speed": 17.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 724.0,
+                "cell_temperature": 48.3,
+                "air_mass": 1.5,
+                "wind_speed": 17.9,
+                "cloud_coverage": 55.0,
+                "estimated_efficiency_factor": 0.5078079999999999
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T15:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 30.7,
+                "humidity": 62.0,
+                "wind_speed": 20.8,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 564.0,
+                "cell_temperature": 44.8,
+                "air_mass": 1.5,
+                "wind_speed": 20.8,
+                "cloud_coverage": 45.0,
+                "estimated_efficiency_factor": 0.589312
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T16:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Near Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 30.3,
+                "humidity": 65.0,
+                "wind_speed": 19.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 392.0,
+                "cell_temperature": 40.1,
+                "air_mass": 1.5,
+                "wind_speed": 19.2,
+                "cloud_coverage": 36.0,
+                "estimated_efficiency_factor": 0.6689952
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T17:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Near Gale",
+                "precipitation": "No Precipitation",
+                "temperature": 29.9,
+                "humidity": 67.0,
+                "wind_speed": 17.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 178.0,
+                "cell_temperature": 34.35,
+                "air_mass": 1.5,
+                "wind_speed": 17.3,
+                "cloud_coverage": 27.0,
+                "estimated_efficiency_factor": 0.7546784000000001
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T18:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 29.5,
+                "humidity": 69.0,
+                "wind_speed": 15.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 26.0,
+                "cell_temperature": 30.15,
+                "air_mass": 1.5,
+                "wind_speed": 15.1,
+                "cloud_coverage": 25.0,
+                "estimated_efficiency_factor": 0.7835200000000001
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T19:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 29.0,
+                "humidity": 71.0,
+                "wind_speed": 13.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 29.0,
+                "air_mass": 1.5,
+                "wind_speed": 13.1,
+                "cloud_coverage": 24.0,
+                "estimated_efficiency_factor": 0.795072
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T20:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.6,
+                "humidity": 72.0,
+                "wind_speed": 11.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.6,
+                "air_mass": 1.5,
+                "wind_speed": 11.9,
+                "cloud_coverage": 22.0,
+                "estimated_efficiency_factor": 0.8121344
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T21:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.3,
+                "humidity": 73.0,
+                "wind_speed": 11.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.3,
+                "air_mass": 1.5,
+                "wind_speed": 11.5,
+                "cloud_coverage": 33.0,
+                "estimated_efficiency_factor": 0.7262848
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T22:00",
+            "weather_condition": {
+                "cloud_description": "Partly Cloudy to at Times Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.1,
+                "humidity": 73.0,
+                "wind_speed": 11.8,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.1,
+                "air_mass": 1.5,
+                "wind_speed": 11.8,
+                "cloud_coverage": 45.0,
+                "estimated_efficiency_factor": 0.632064
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-08T23:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.9,
+                "humidity": 73.0,
+                "wind_speed": 11.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.9,
+                "air_mass": 1.5,
+                "wind_speed": 11.7,
+                "cloud_coverage": 56.0,
+                "estimated_efficiency_factor": 0.5455968
+            },
+            "confidence_score": 0.65
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T00:00",
+            "weather_condition": {
+                "cloud_description": "Mostly or Mainly Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.7,
+                "humidity": 74.0,
+                "wind_speed": 10.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.7,
+                "air_mass": 1.5,
+                "wind_speed": 10.5,
+                "cloud_coverage": 71.0,
+                "estimated_efficiency_factor": 0.42733440000000006
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T01:00",
+            "weather_condition": {
+                "cloud_description": "Cloudy",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 27.6,
+                "humidity": 74.0,
+                "wind_speed": 9.0,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.6,
+                "air_mass": 1.5,
+                "wind_speed": 9.0,
+                "cloud_coverage": 85.0,
+                "estimated_efficiency_factor": 0.31667199999999995
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T02:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.5,
+                "humidity": 75.0,
+                "wind_speed": 7.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.5,
+                "air_mass": 1.5,
+                "wind_speed": 7.9,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19799999999999995
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T03:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.4,
+                "humidity": 75.0,
+                "wind_speed": 7.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.4,
+                "air_mass": 1.5,
+                "wind_speed": 7.2,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19807999999999998
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T04:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.2,
+                "humidity": 76.0,
+                "wind_speed": 6.6,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.2,
+                "air_mass": 1.5,
+                "wind_speed": 6.6,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19823999999999994
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T05:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.2,
+                "humidity": 76.0,
+                "wind_speed": 6.4,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.2,
+                "air_mass": 1.5,
+                "wind_speed": 6.4,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19823999999999994
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T06:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.3,
+                "humidity": 76.0,
+                "wind_speed": 6.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 27.3,
+                "air_mass": 1.5,
+                "wind_speed": 6.2,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19815999999999995
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T07:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.4,
+                "humidity": 76.0,
+                "wind_speed": 5.6,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 90.0,
+                "cell_temperature": 29.65,
+                "air_mass": 1.5,
+                "wind_speed": 5.6,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19627999999999995
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T08:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 27.7,
+                "humidity": 75.0,
+                "wind_speed": 5.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 247.0,
+                "cell_temperature": 33.875,
+                "air_mass": 1.5,
+                "wind_speed": 5.3,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19289999999999996
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T09:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.0,
+                "humidity": 73.0,
+                "wind_speed": 4.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 409.0,
+                "cell_temperature": 38.225,
+                "air_mass": 1.5,
+                "wind_speed": 4.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18941999999999995
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T10:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.5,
+                "humidity": 71.0,
+                "wind_speed": 3.6,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 567.0,
+                "cell_temperature": 42.675,
+                "air_mass": 1.5,
+                "wind_speed": 3.6,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18585999999999997
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T11:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Light Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.8,
+                "humidity": 69.0,
+                "wind_speed": 2.5,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 675.0,
+                "cell_temperature": 45.675,
+                "air_mass": 1.5,
+                "wind_speed": 2.5,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18345999999999996
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T12:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Light Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 29.0,
+                "humidity": 69.0,
+                "wind_speed": 0.4,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 693.0,
+                "cell_temperature": 46.325,
+                "air_mass": 1.5,
+                "wind_speed": 0.4,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18293999999999996
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T13:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Light Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 29.1,
+                "humidity": 70.0,
+                "wind_speed": 2.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 636.0,
+                "cell_temperature": 45.0,
+                "air_mass": 1.5,
+                "wind_speed": 2.3,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18399999999999997
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T14:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 29.1,
+                "humidity": 71.0,
+                "wind_speed": 5.1,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 547.0,
+                "cell_temperature": 42.775000000000006,
+                "air_mass": 1.5,
+                "wind_speed": 5.1,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18577999999999995
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T15:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Moderate to Occasionally Strong",
+                "precipitation": "No Precipitation",
+                "temperature": 29.0,
+                "humidity": 73.0,
+                "wind_speed": 8.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 454.0,
+                "cell_temperature": 40.35,
+                "air_mass": 1.5,
+                "wind_speed": 8.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.18771999999999994
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T16:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.8,
+                "humidity": 75.0,
+                "wind_speed": 12.9,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 329.0,
+                "cell_temperature": 37.025,
+                "air_mass": 1.5,
+                "wind_speed": 12.9,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19037999999999994
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T17:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.6,
+                "humidity": 77.0,
+                "wind_speed": 15.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 152.0,
+                "cell_temperature": 32.4,
+                "air_mass": 1.5,
+                "wind_speed": 15.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19407999999999997
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T18:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Strong Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.4,
+                "humidity": 79.0,
+                "wind_speed": 15.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 21.0,
+                "cell_temperature": 28.924999999999997,
+                "air_mass": 1.5,
+                "wind_speed": 15.3,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19685999999999998
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T19:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.3,
+                "humidity": 80.0,
+                "wind_speed": 13.3,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.3,
+                "air_mass": 1.5,
+                "wind_speed": 13.3,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19735999999999995
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T20:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.2,
+                "humidity": 81.0,
+                "wind_speed": 11.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.2,
+                "air_mass": 1.5,
+                "wind_speed": 11.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19743999999999995
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T21:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.2,
+                "humidity": 81.0,
+                "wind_speed": 11.7,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.2,
+                "air_mass": 1.5,
+                "wind_speed": 11.7,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19743999999999995
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T22:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.3,
+                "humidity": 80.0,
+                "wind_speed": 12.4,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.3,
+                "air_mass": 1.5,
+                "wind_speed": 12.4,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19735999999999995
+            },
+            "confidence_score": 0.6
+        },
+        {
+            "location": {
+                "latitude": 13.7564,
+                "longitude": 121.0583
+            },
+            "forecast_date": "2025-11-09T23:00",
+            "weather_condition": {
+                "cloud_description": "Overcast",
+                "wind_description": "Fresh Winds",
+                "precipitation": "No Precipitation",
+                "temperature": 28.3,
+                "humidity": 80.0,
+                "wind_speed": 13.2,
+                "precipitation_probability": 0.0
+            },
+            "solar_conditions": {
+                "solar_irradiance": 0.0,
+                "cell_temperature": 28.3,
+                "air_mass": 1.5,
+                "wind_speed": 13.2,
+                "cloud_coverage": 100.0,
+                "estimated_efficiency_factor": 0.19735999999999995
+            },
+            "confidence_score": 0.6
+        }
+    ],
+    "model_used": "Open-Meteo + PAGASA Classification",
+    "generated_at": "2025-11-03T22:13:01.152305"
+}

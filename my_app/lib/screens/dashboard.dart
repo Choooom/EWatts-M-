@@ -144,7 +144,7 @@ class _ConsumptionsState extends State<Consumptions> {
                               // Use DeviceDetails as requested
                               panelName: device.deviceName,
                               panelStatus: device.deviceCount > 0
-                                  ? "Active"
+                                  ? "Offline"
                                   : "Offline", // Example status logic
                             ),
                         transitionDuration: Duration(milliseconds: 500),

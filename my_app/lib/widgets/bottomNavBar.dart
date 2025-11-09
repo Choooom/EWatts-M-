@@ -63,7 +63,7 @@ class _bottomNavBarState extends State<bottomNavBar> {
                   GButton(
                     padding: EdgeInsets.all(12),
                     icon: Icons.dashboard_rounded,
-                    text: "Dashboard",
+                    text: "Ewan",
                     onPressed: () => {
                       Navigator.push(
                         context,

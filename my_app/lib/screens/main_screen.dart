@@ -42,7 +42,7 @@ class _MainNavigationState extends State<MainNavigation> {
 
   Padding bottomNavBar(BuildContext context, Brightness brightness) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.whiteWidgetBg(brightness),

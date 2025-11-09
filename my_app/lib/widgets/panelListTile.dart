@@ -58,7 +58,7 @@ class PanelTile extends StatelessWidget {
                 ),
 
                 SizedBox(
-                  width: width * 0.5,
+                  width: width * 0.4,
                   child: Padding(
                     padding: EdgeInsetsGeometry.only(left: 10),
                     child: Container(

@@ -25,7 +25,7 @@ class _PanelsScreenState extends State<PanelsScreen> {
         panelName: "SOLAR S-784",
         efficiencyLevel: 80,
         energyLevel: 1.3,
-        status: true,
+        status: false,
       ),
     ];
     final width = MediaQuery.sizeOf(context).width;
@@ -224,7 +224,7 @@ class _PanelsScreenState extends State<PanelsScreen> {
     ValueChanged<bool> onChanged,
   ) {
     return AspectRatio(
-      aspectRatio: 1 / 0.6,
+      aspectRatio: 1 / 0.7,
       child: Center(
         child: Container(
           width: width * 0.95,
