@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_app/constants/colors.dart';
+import 'package:my_app/screens/power_monitor_screen.dart';
 import 'package:my_app/state_management/theme_mode_listener.dart';
 import 'package:my_app/widgets/tap_scale_effect.dart';
 
@@ -27,32 +28,59 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // Leading Button
-              // TapScaleEffect(
-              //   onTap: () => print("Menu"),
-              //   child: Padding(
-              //     padding: const EdgeInsets.only(left: 10.0),
-              //     child: Container(
-              //       width: 46,
-              //       height: 46,
-              //       alignment: Alignment.center,
-              //       decoration: BoxDecoration(
-              //         color: AppColors.whiteWidgetBg(brightness),
-              //         borderRadius: BorderRadius.circular(23),
-              //         boxShadow: [
-              //           BoxShadow(
-              //             color: Colors.black.withValues(alpha: 0.05),
-              //             blurRadius: 1,
-              //           ),
-              //         ],
-              //       ),
-              //       child: SvgPicture.asset(
-              //         'assets/icons/menu_drawer.svg',
-              //         width: 25,
-              //         height: 25,
-              //       ),
-              //     ),
-              //   ),
-              // ),
+              TapScaleEffect(
+                onTap: () => Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        PowerMonitorScreen(deviceId: "3"),
+                    transitionDuration: Duration(milliseconds: 500),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1, 0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(
+                            begin: begin,
+                            end: end,
+                          ).chain(CurveTween(curve: curve));
+
+                          // Apply the same slide/fade transition
+                          return FadeTransition(
+                            opacity: animation,
+                            child: SlideTransition(
+                              position: animation.drive(tween),
+                              child: child,
+                            ),
+                          );
+                        },
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: Container(
+                    width: 46,
+                    height: 46,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: AppColors.whiteWidgetBg(brightness),
+                      borderRadius: BorderRadius.circular(23),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.05),
+                          blurRadius: 1,
+                        ),
+                      ],
+                    ),
+                    child: SvgPicture.asset(
+                      'assets/icons/menu_drawer.svg',
+                      width: 25,
+                      height: 25,
+                    ),
+                  ),
+                ),
+              ),
 
               // Title Section
               Expanded(
@@ -84,32 +112,32 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
 
               // Trailing Button
-              // TapScaleEffect(
-              //   onTap: () {},
-              //   child: Padding(
-              //     padding: const EdgeInsets.only(right: 10.0),
-              //     child: Container(
-              //       width: 46,
-              //       height: 46,
-              //       alignment: Alignment.center,
-              //       decoration: BoxDecoration(
-              //         color: AppColors.whiteWidgetBg(brightness),
-              //         borderRadius: BorderRadius.circular(23),
-              //         boxShadow: [
-              //           BoxShadow(
-              //             color: Colors.black.withValues(alpha: 0.05),
-              //             blurRadius: 1,
-              //           ),
-              //         ],
-              //       ),
-              //       child: SvgPicture.asset(
-              //         'assets/icons/notification.svg',
-              //         width: 25,
-              //         height: 25,
-              //       ),
-              //     ),
-              //   ),
-              // ),
+              TapScaleEffect(
+                onTap: () {},
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: Container(
+                    width: 46,
+                    height: 46,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: AppColors.whiteWidgetBg(brightness),
+                      borderRadius: BorderRadius.circular(23),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.05),
+                          blurRadius: 1,
+                        ),
+                      ],
+                    ),
+                    child: SvgPicture.asset(
+                      'assets/icons/notification.svg',
+                      width: 25,
+                      height: 25,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         );

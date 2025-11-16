@@ -28,6 +28,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
+
+        // CRITICAL FIX: Skip JWT processing for WebSocket handshake requests
+        // WebSocket handshakes need the raw Upgrade header to pass through
+        String requestPath = request.getRequestURI();
+        if (requestPath != null && requestPath.startsWith("/api/iot/ws")) {
+            log.debug("Skipping JWT filter for WebSocket endpoint: {}", requestPath);
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         try {
             String jwt = parseJwt(request);
 

@@ -120,7 +120,7 @@ class AuthWrapper extends ConsumerWidget {
 
     if (authState.isLoading) {
       return const Scaffold(
-        body: Stack(children: [LogIn(), CircularProgressIndicator()]),
+        body: Stack(children: [MainNavigation(), CircularProgressIndicator()]),
       );
     }
 

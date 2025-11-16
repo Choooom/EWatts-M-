@@ -32,25 +32,25 @@ class SecondaryAppBar extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          // TapScaleEffect(
-          //   onTap: () => {},
-          //   child: Container(
-          //     decoration: BoxDecoration(
-          //       shape: BoxShape.circle,
-          //       color: AppColors.whiteWidgetBg(brightness),
-          //       boxShadow: [
-          //         BoxShadow(
-          //           color: Colors.black.withValues(alpha: 0.05),
-          //           blurRadius: 1,
-          //         ),
-          //       ],
-          //     ),
-          //     child: Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: Icon(Icons.more_horiz),
-          //     ),
-          //   ),
-          // ),
+          TapScaleEffect(
+            onTap: () => {},
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColors.whiteWidgetBg(brightness),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.05),
+                    blurRadius: 1,
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(Icons.more_horiz),
+              ),
+            ),
+          ),
         ],
       ),
     );
